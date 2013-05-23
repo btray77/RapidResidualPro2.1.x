@@ -1,0 +1,140 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Autoresponse Plus List Management</strong></p>
+
+<div class="buttons">
+    <a href="arp.php">Go back</a>
+    </div>
+
+<div class="formborder">
+
+<form action="addarp.php" method="post">
+<table width="95%" align="center" border="0">
+
+	  <td colspan="2" class="tbtext"><strong>Autoresponse Plus Settings </strong></td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="titles">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Responder Name :</strong></td>
+      <td><input name="rspname2" class="inputbox" type="text" id="rspname2" value="{{rspname2}}"></td>
+	</tr>	
+	<tr>
+	  <td class="tbtext"><strong>List ID:</strong></td>
+      <td><input name="arp_list_id" class="inputbox" type="text" id="arp_list_id" value="{{arp_list_id}}"></td>
+	</tr>
+	<tr>
+	  <td class="tbtext"><strong>Free Signup Tracking Tag:</strong></td>
+      <td><input name="trackingtag1" class="inputbox" type="text" id="trackingtag1" value="{{trackingtag1}}">
+      <div class="tool">	
+		<a href="" class="tooltip" title="{{http_path}}/free.php">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	
+	<tr>
+	  <td class="tbtext"><strong>Paid Signup Tracking Tag:</strong></td>
+      <td><input name="trackingtag2" class="inputbox" type="text" id="trackingtag2" value="{{trackingtag2}}">
+      
+       <div class="tool">	
+		<a href="" class="tooltip" title="{{http_path}}/signup.php">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	
+	<tr>
+	  <td class="tbtext"><strong>Affiliate Signup Tracking Tag:</strong></td>
+      <td><input name="trackingtag3" class="inputbox" type="text" id="trackingtag3" value="{{trackingtag3}}">
+      
+      <div class="tool">	
+		<a href="" class="tooltip" title="{{http_path}}/affiliate.php">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      
+      </td>
+	</tr>
+	
+	<tr>
+	  <td class="tbtext"><strong>JV Partner  Signup Tracking Tag:</strong></td>
+      <td><input name="trackingtag5" class="inputbox" type="text" id="trackingtag5" value="{{trackingtag5}}">
+      <div class="tool">	
+		<a href="" class="tooltip" title="{{http_path}}/jvsign.php">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	
+
+	<tr>
+	  <td class="tbtext"><strong>Member Area And OTO  Tracking Tag:</strong></td>
+      <td><input name="trackingtag4" class="inputbox" type="text" id="trackingtag4" value="{{trackingtag4}}">
+      
+       <div class="tool">	
+		<a href="" class="tooltip" title="{{http_path}}/arp_return.php">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      
+      </td>
+	</tr>
+	
+	<tr>
+	  <td class="tbtext"><strong>ARP post URL :</strong></td>
+      <td><input name="posturl" type="text" class="inputbox" id="posturl" value="{{posturl}}" size="50"></td>
+	</tr>
+	<tr>
+	  <td class="tbtext" colspan="2">
+	<div class="notics">
+	  <strong>NOTE:</font></strong>You must set up a tracking tag and have it return data back to the script. Each  process requires a different return URL so you will need to set up a seperate Tracking Tag for each process. This means you must create a seperate entry for each signup method: free, paid, affiliate, and member area processes..The required return address is listed below each Tracking Tag option.
+	  </div>  
+	</td>
+    </tr>
+	<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Add Autoresponder" class="inputbox">		</td>
+	</tr>
+	
+	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">&nbsp;		</td>
+	</tr>
+	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">
+	<ul>
+		<li>These fields can be found inside the code for your signup form supplied by your autoresponder service.</li>        
+	  </ul>		</td>
+	</tr>
+</table>
+</form>
+
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

@@ -1,0 +1,39 @@
+<br>
+<table width="95%" border="0" align="center">
+<tr>
+	<td colspan="2" align="center" class="titles">Add Coaching Message For {{prod}} </td>
+</tr>
+ 
+</table>
+<form action="addmessage.php" method="post">
+<input type="hidden" name="product" value="{{pid}}">
+<input type="hidden" name="mid" value="{{mid}}">
+<table width="95%" align="center" border="0">
+      <tr>
+	<td colspan="2" align="left" class="logotext">
+	<b>Message:</b>	</td>
+	</tr>
+
+<tr>
+	<td colspan="2" align="left" class="logotext">
+	<b>
+	<label>
+	<textarea class="inputbox" name="message" cols="100" rows="10"></textarea>
+	</label>
+	</b>	</td>
+	</tr>
+
+
+
+<tr>
+  <td class="logotext" align="left">&nbsp;</td>
+  <td class="logotext" align="left">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2" align="left">
+	<input type="submit" name="submit" value="Save and Send"  class="inputbox"> 
+	<input type="reset" name="Reset" value="Reset" class="inputbox"><br /><a href="member_messages.php?mid={{mid}}&amp;product={{pshort}}">Back To Messages</a></td>
+</tr>
+</table>
+</form>

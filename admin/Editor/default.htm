@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <!-- InnovaStudio LIVE Editor -->
+    <script language="javascript" src='scripts/innovaeditor.js'></script>
+
+    <link href="styles/default.css" rel="stylesheet" type="text/css" />
+
+    <!-- This section is required if using Google Fonts Dialog AND required on the page where the content is published -->
+    <script src="scripts/common/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" type="text/javascript"></script>
+    <script src="scripts/common/webfont.js" type="text/javascript"></script>
+
+    <!-- This section is required on the page where the content is published (to enable 'Open Larger' feature on flickr image) -->
+<!--
+    <script src="scripts/common/fancybox13/jquery.easing-1.3.pack.js" type="text/javascript"></script>
+    <script src="scripts/common/fancybox13/jquery.mousewheel-3.0.2.pack.js" type="text/javascript"></script>
+    <script src="scripts/common/fancybox13/jquery.fancybox-1.3.1.pack.js" type="text/javascript"></script>
+    <link href="scripts/common/fancybox13/jquery.fancybox-1.3.1.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $('a[rel=lightbox]').fancybox();
+        });
+    </script>-->
+
+    <style type="text/css">
+        body{font:12px verdana,arial,sans-serif;background-image:url(styles/45degreee_fabric.png);line-height:23px;}
+        a{color:#0000cc;font-size:12px;}
+
+        h1, h2, h3 {margin-top:40px;margin-bottom:20px;text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);}
+        h2 {text-transform:uppercase}
+        h3 {font-size:14px;color:#a90000;border-bottom:#000000 1px dotted;}
+    </style>
+
+</head>
+<body style="margin:50px;margin-top:20px">
+<p style="border:#000000 1px dashed;padding:10px;width:500px;margin-bottom:30px">ASP.NET Developers?&nbsp; <a href="default_aspnet.aspx">Visit ASP.NET Example</a></p>
+
+<h1 style="font-family:Bevan;font-size:24pt;color: rgb(191, 0, 0);">InnovaStudio Live Editor</h1>
+<div style="font-family:Waiting for the Sunrise;font-size:16pt;"></div>
+<p>InnovaStudio Live Editor is a tool that offers a nice and elegant way to edit and beautify web/html content. It is easy to implement in forms as an ordinary <b>&lt;textarea&gt;</b> replacement.
+</p>
+
+<h2>Example 1</h2>
+
+<textarea id="txtContent" name="txtContent" rows=4 cols=30>
+<p><span style="font-size: 48px; line-height: 52px; font-family: Bevan; text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1), 10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05); color: rgb(191, 0, 0);">InnovaStudio Live Editor</span></p>
+<p><span style="font-size: 24px; line-height: 50px; font-family: Waiting for the Sunrise;">The Real Online HTML Editor &amp; Beautifier</span><br />
+	</p>
+<p>First Paragraph here <img alt="surprise" src="scripts/icons/smiley-surprise.png" />. Lorem ipsum fierent mnesarchum ne vel, et usu posse takimata omittantur, pro ut tale erant sapientem. Et regione tibique ancillae nam. Tale modus iuvaret eu usu. </p>
+<p><img border="0" src="http://farm4.static.flickr.com/3106/5710328091_9828c7a3c1_m.jpg" alt="" style="float: left; margin: 7px 20px 7px 7px; border: 7px solid rgb(255, 255, 255); box-shadow: 0pt 15px 10px -10px rgba(0, 0, 0, 0.5), 0pt 1px 4px rgba(0, 0, 0, 0.3);" /></p>
+<p>&nbsp;</p>
+<p>Lorem ipsum fierent mnesarchum ne vel, et usu posse takimata
+omittantur, pro ut tale erant sapientem. Et regione tibique ancillae
+nam. Tale modus iuvaret eu usu. Id labore semper voluptatum vel. Eu
+labore suscipit nam, in simul qualisque pri. Tempor nostrud explicari est eu, vim moderatius cotidieque ad, id novum everti qui. Lorem ipsum fierent mnesarchum ne vel, et usu posse takimata
+omittantur, pro ut tale erant sapientem. Et regione tibique ancillae
+nam. Tale modus iuvaret eu usu. Id labore semper voluptatum vel.<br /><br />
+<a href="http://www.innovastudio.com" class="medium yellow awesome">Visit Website</a>
+	</p>
+</textarea>
+
+<script language="javascript" type="text/javascript">
+
+    var oEdit1 = new InnovaEditor("oEdit1");
+
+    oEdit1.width = 750;
+    oEdit1.height = 530;
+
+    /*Enable Custom File Browser */
+    oEdit1.fileBrowser = "/LiveEditor/assetmanager/asset.php";
+
+    /*Apply stylesheet for the editing content*/
+    oEdit1.css = "styles/default.css";
+
+    /*Render the editor*/
+    oEdit1.REPLACE("txtContent");
+
+</script>
+
+<h2>Example 2 (Complete Buttons)</h2>
+
+<textarea id="txtContent2" name="txtContent" rows=4 cols=30>
+    <p>First Paragraph here. Lorem ipsum fierent mnesarchum ne vel, et usu posse takimata omittantur, pro ut tale erant sapientem. Et regione tibique ancillae nam. Tale modus iuvaret eu usu.</p>
+</textarea>
+
+<script type="text/javascript" language="javascript">
+
+    var oEdit2 = new InnovaEditor("oEdit2");
+
+    oEdit2.width = 750;
+    oEdit2.height = 400;
+
+    /*Add Custom Buttons */
+    oEdit2.arrCustomButtons.push(["MyCustomButton", "alert('Custom Command here..')", "Caption..", "btnCustom1.gif"]);
+
+    /*Toolbar Buttons Configuration*/
+    oEdit2.groups = [
+        ["group1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog","CompleteTextDialog", "Styles", "RemoveFormat"]],
+        ["group2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+        ["group3", "", ["Table","TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "ImageDialog", "YoutubeDialog"]],
+        ["group4", "", ["InternalLink", "CharsDialog", "Line", "BRK", "CustomObject", "CustomTag", "MyCustomButton"]],
+        ["group5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen"]]
+        ];
+
+    /*Define "InternalLink" & "CustomObject" buttons */
+    oEdit2.cmdInternalLink = "modalDialog('my_custom_dialog.htm',650,350)"; //Command to open your custom link browser.
+    oEdit2.cmdCustomObject = "modalDialog('my_custom_dialog.htm',650,350)"; //Command to open your custom file browser.
+
+    /*Enable Custom File Browser */
+    oEdit2.fileBrowser = "/LiveEditor/assetmanager/asset.php";
+
+    /*Define "CustomTag" dropdown */
+    oEdit2.arrCustomTag = [["First Name", "{%first_name%}"],
+        ["Last Name", "{%last_name%}"],
+        ["Email", "{%email%}"]]; //Define custom tag selection
+
+    /*Apply stylesheet for the editing content*/
+    oEdit2.css = "styles/default.css";
+oEdit2.mode = "XHMTL";
+    /*Render the editor*/
+    oEdit2.REPLACE("txtContent2");
+
+</script>
+
+<h2>Example 3 (Complete Buttons) with Tabs</h2>
+
+<textarea id="txtContent3" name="txtContent3" rows=4 cols=30>
+    <p>First Paragraph here. Lorem ipsum fierent mnesarchum ne vel, et usu posse takimata omittantur, pro ut tale erant sapientem. Et regione tibique ancillae nam. Tale modus iuvaret eu usu.</p>
+</textarea>
+
+<script type="text/javascript" language="javascript">
+
+    var oEdit3 = new InnovaEditor("oEdit3");
+
+    oEdit3.width = 750;
+    oEdit3.height = 400;
+
+	oEdit3.toolbarMode = 1; //activate tab toolbar
+
+    /*Add Custom Buttons */
+    oEdit3.arrCustomButtons.push(["MyCustomButton", "alert('Custom Command here..')", "Caption..", "btnCustom1.gif"]);
+
+	//dropdown butto
+	var dropdownItems = [
+		["dropdown1", "alert('test');", "Dropdown Item 1"],
+		["dropdown2", "modalDialog('somedialog1.htm',500,223,'My Dialog1');", "Dropdown Item 2"],
+		["dropdown3", "modalDialog('somedialog2.htm',800,453,'My Dialog2');", "Dropdown Item 3"]
+	];
+	oEdit3.arrCustomButtons.push(["MyDropdownButton", "", "Caption..", "btnCustom2.gif", 0, dropdownItems]);
+
+
+    /*Toolbar Buttons Configuration*/
+    oEdit3.groups = [
+        ["group1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog", "Styles", "RemoveFormat"]],
+        ["group2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+        ["group3", "", ["Table" ,"TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "BookmarkDialog", "ImageDialog", "YoutubeDialog"]],
+        ["group4", "", ["InternalLink", "CharsDialog", "Line", "BRK", "CustomObject", "CustomTag", "MyCustomButton", "MyDropdownButton"]],
+        ["group5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen", "Preview"]]
+        ];
+
+	oEdit3.tabs = [
+		["tabCommon", "Common", ["group1","group2","group3", "group5"]],
+		["tabAdvanced", "Advanced", ["group4"]]
+	];
+
+    /*Define "InternalLink" & "CustomObject" buttons */
+    oEdit3.cmdInternalLink = "modalDialog('my_custom_dialog.htm',650,350)"; //Command to open your custom link browser.
+    oEdit3.cmdCustomObject = "modalDialog('my_custom_dialog.htm',650,350)"; //Command to open your custom file browser.
+
+    /*Enable Custom File Browser */
+    oEdit3.fileBrowser = "/LiveEditor/assetmanager/asset.php";
+
+    /*Define "CustomTag" dropdown */
+    oEdit3.arrCustomTag = [["First Name", "{%first_name%}"],
+        ["Last Name", "{%last_name%}"],
+        ["Email", "{%email%}"]]; //Define custom tag selection
+
+    /*Apply stylesheet for the editing content*/
+    oEdit3.css = "styles/default.css";
+
+    /*Render the editor*/
+    oEdit3.REPLACE("txtContent3");
+
+</script>
+
+<br />
+<hr />
+<div style="font-size:11px">Copyright © 2012, INNOVASTUDIO (www.InnovaStudio.com). All rights reserved.</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Edit Admin Information</strong></p>
+<div class="buttons"><a href="{{refrer}}">Go Back!</a></div>
+
+<div class="formborder"> <br /> <br />
+<form name="member-act" action="admin_edit.php" method="post" enctype="multipart/form-data">
+<input type="hidden" name="Act" value="{{act}}">
+<input type="hidden" name="id" value="{{id}}">
+<div style="margin-left: 280px;">
+<table width="95%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr> <td colspan="2"><span style="color: red">All fields with ( * ) are mandatory.</span></td></tr>
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>User Name: </b></td>
+	<td width="72%" align="left" class="tbtext"><input type="text" name="username" value="{{username}}" class="inputbox"><span style="color: red">*</span></td>
+    </tr>
+	<tr>
+	<td class="tbtext" align="left" width="27%"><b>Email: </b></td>
+	<td width="72%" align="left" class="tbtext"><input name="webmaster_email" type="text" class="inputbox" id="webmaster_email" value="{{webmaster_email}}" style="width: 180px;"><span style="color: red">*</span></td>
+    </tr>
+    <tr>
+	<td class="tbtext" align="left" width="27%"><b>Role: </b></td>
+	<td width="72%" align="left" class="tbtext">
+	{{roles}}
+	
+	</td>
+    </tr>	
+    <tr>
+      <td colspan="2" align="left">&nbsp;</td>
+    </tr>
+    <tr>
+	<td colspan="2" align="left">
+	<input type="submit" name="submit" value=" Edit Admin" class="inputbox"></td>
+</tr>
+</table>
+</div>
+
+</form>
+ <br /> <br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->

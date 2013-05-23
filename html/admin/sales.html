@@ -1,0 +1,65 @@
+<br>
+<table width="75%" border="0" align="center">
+<tr>
+	<td align="center" class="titles">
+	{{Title}}
+	</td>
+</tr>
+<tr>
+	<td align="center" class="tbheaders"><font color="red">
+	{{Message}}</font>
+	</td>
+</tr>
+</table>
+<br>
+
+<table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+	<td colspan=6 align="right" class="tbtext">
+		Page __single__ __first__ __previous__  <{page_loopstart}> <{page1}>&nbsp;<{page_loopend}>__next__ __last__</td>
+</tr>
+<tr>
+  <td colspan=6 align="right" class="tbheaders">&nbsp;</td>
+</tr>
+</table>
+
+
+
+<table class="sortable" width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+	<td width="19%" align="left">TXN ID</td>
+	<td width="20%" align="left">PRODUCT SHORT NAME </td>
+	<td width="20%" align="left">PAYEE</td>
+	<td width="17%" align="left">MEMBER INFO </td>
+	<td align="center">PRICE</td>
+    <td align="center">DATE</td>
+</tr>
+</thead>
+<{Begin}>
+<tr align="left">
+	<td class="tbtext">{{txnid}}</td>
+	<td class="tbtext">{{pshort}}</td>
+	<td class="tbtext">{{payee}}</td>
+	<td class="tbtext">{{firstname}} {{lastname}}<br />
+	  {{email}}</td>
+	<td width="10%" class="tbtext">{{price}}</td>
+	<td width="14%" class="tbtext">{{date}}</td>
+</tr>
+
+<{End}>
+</table>
+
+<table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+  <td colspan=6 align="right" class="tbheaders">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan=6 align="right" class="tbtext">
+		Page __single__ __first__ __previous__  <{page_loopstart}> <{page1}>&nbsp;<{page_loopend}>__next__ __last__</td>
+</tr>
+<tr>
+  <td colspan=6 align="left" class="tbheaders">&nbsp;</td>
+</tr>
+</table>
+<br>

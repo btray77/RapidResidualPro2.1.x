@@ -1,0 +1,65 @@
+Change log  RapidResudualpro Release 2.0 
+
+RapidResudualpro Release 2.0.10  
+
+1. AutoSave Product Management
+2. Trash Manager In product Management
+3. Product Management Bug Fixing
+4. Bug Fixing.
+5. Remove price in marketplace (member/outside member)
+
+RapidResudualpro Release 2.0.9  
+
+1. Product Partner
+2. Ehnacement in rotational payment Algo
+3. Product Management Bug Fixing
+4. Bug Fixing.
+
+
+RapidResudualpro Release 2.0.8  
+
+1. Addition Auto Responders
+2. Constant Contact
+3. Imnica
+4. Signup process Ajax.
+5. Bug Fixing.
+
+RapidResudualpro Release 2.0.7  
+
+1. Admin site setting improved
+2. Payment process improvement
+3. Product Management Enhancement
+4. Signup process improved.
+5. Tracking code is implemented.
+
+RapidResudualpro Release 2.0.6  
+1. offsite button intigration
+2. Bug fix.
+3. Add css3.0 properties.
+
+RapidResudualpro Release 2.0.5  
+1. Product Management Enhancement
+2. Referer payment rotation bug fix
+3. Bug fixing.
+
+RapidResudualpro Release 2.0.4  
+1. Database security layer improved
+2. Clents Side data validity
+3. Modification in product management
+4. Bug fixed in invite code.
+5. Media Manager Bug Fixed.
+6.Password limitation ($) and potential SQL injection
+
+RapidResudualpro Release 2.0.3  
+1. OTO Problem is solved
+2. OTO Downsell problem is solved
+3. Outside marketplace Fixed.
+4. Link color is changed.
+5. Media Manager Bug Fixed.
+
+
+RapidResudualpro Release 2.0.2  
+1. Traffic and Sales Graph
+2. Enhancement in reporting system. 
+3. Fix Contact us email
+

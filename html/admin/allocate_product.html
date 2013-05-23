@@ -1,0 +1,68 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{message}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>{{Title}}</strong></p>
+<div class="buttons"><a	href="paid_products.php" >Go Back!</a></div>
+<div class="formborder"><br />
+
+
+<form name="form1" method="post" action='allocate_product.php'>
+<table width="90%" border="0" align="center" cellpadding="3" cellspacing="0">
+
+<tr align="left">
+	<td class="tbtext" valign="top" width="12%"><strong>Select Members:</strong></td>
+	<td width="54%" align="left" class="tbtext">
+		<select class="inputbox" name="members[]" size=10 multiple>
+		{{mem}}
+		</select>
+		<div class="tool">	
+		<a href="" class="tooltip" title="Hold ctrl key to select multiple members.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	
+			</td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+
+<tr align=left>
+	<td class="tbtext"><strong>Product Name:</strong><br>
+	  </td>
+	<td class="tbtext" align="left" valign=top><select class="inputbox" name="product">{{prod}}</select>
+	<div class="tool">	
+		<a href="" class="tooltip" title="This is the product to be allocated">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	
+	</td>
+</tr>
+
+<tr><td>&nbsp;</td></tr>
+<tr>
+	<td colspan="2"><input class="inputbox" type="submit" name="allocate" value='Allocate Product'></td>
+	</tr>
+
+
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

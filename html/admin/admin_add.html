@@ -1,0 +1,69 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Add New Admin</strong></p>
+<div class="buttons"><a href="view_all_admins.php#pagination">Go Back!</a></div>
+<div class="formborder"><br />
+<br />
+
+<form name="admin-act" action="admin_add.php" method="post"
+	enctype="multipart/form-data">
+<div style="margin-left: 280px;">
+<table width="95%" border="0" align="center" cellpadding="3"
+	cellspacing="0">
+	<tr>
+		<td colspan="2"><span style="color: red">All fields with (
+		* ) are mandatory.</span></td>
+	</tr>
+	<tr>
+		<td class="tbtext" align="left" width="27%"><b>Email: </b></td>
+		<td class="tbtext" align="left" width="72%"><input type="text"
+			name="email" class=inputbox> <span style="color: red">*</span></td>
+	</tr>
+	<tr>
+		<td class="tbtext" align="left" width="27%"><b>User Name: </b></td>
+		<td class="tbtext" align="left" width="72%"><input type="text"
+			name="username" class=inputbox> <span style="color: red">*</span></td>
+			
+	</tr>
+	<tr>
+		<td class="tbtext" align="left" width="27%"><b>Role: </b></td>
+		<td class="tbtext" align="left" width="72%">
+		{{role}}
+		
+		</td>
+			
+	</tr>
+	
+	
+	<tr>
+		<td class="tbtext" align="left" width="27%"><b>Password: </b></td>
+		<td class="tbtext" align="left" width="72%"><input type="text"
+			name="password" class=inputbox> <span style="color: red">*</span></td>
+	</tr>
+	
+	{{add_hide_begin}}
+	<tr>
+		<td colspan=2>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="left"><input type="submit" name="submit" value="Add Admin" class="inputbox"></td>
+	</tr>
+</table>
+</div>
+</form>
+<br />
+<br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->

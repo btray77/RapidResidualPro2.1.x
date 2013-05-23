@@ -1,0 +1,47 @@
+
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Edit Help Desk</strong></p>
+<div class="buttons"><a	href="help_desks.php" >Go Back </a></div>
+<div class="formborder"><br />
+<br />
+
+<form action="edit_helpdesk.php" method="post">
+<input type="hidden" name="id" value="{{id}}">
+<table width="95%" align="center" border="0">
+	<tr>
+	  <td colspan="2" class="tbtext"><strong>Help Desk Settings</strong></td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="titles">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Help Desk Name:</strong></td>
+      <td><input name="name" class="inputbox" type="text" id="name" value="{{name}}"></td>
+	</tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Help Desk Url:</strong></td>
+      <td><input name="url" class="inputbox" type="text" id="url" value="{{url}}"></td>
+	</tr>
+		<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Edit Help Desk" class="inputbox">		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>

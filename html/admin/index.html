@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Admin Panel - {{sitename}}</title>
+
+<link href="../common/newLayout/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="body-login">
+	<div class="wrapper">
+    
+    	<!-- ###################### Header Area Start ###################### -->
+        <div class="header-wrap">
+                <div class="head-top">
+                	<div class="header-top-login" style="font-weight: bold;">
+                	Admin Panel For: - <span class="sitename">{{sitename}}</span>
+                	</div>
+				</div>
+                <div class="header-bot">
+                	<div class="header-bot-login"><img src="../images/logo-2.png" /></div>
+				</div>
+        </div>
+        <!-- ###################### Header Area Close ###################### -->
+        
+        <!-- ###################### Content Area Start ###################### -->
+      	<div class="content-wrap-login">
+        	<div class="login-top">
+            	
+	  		</div>
+	  		{{error}}
+      	    	<div class="login-form-wrap">
+            	<h1>Administrator Login</h1>
+                <form action="welcome.php" method="post">
+                <div class="login-form">
+                    <p>Username</p>
+                    <input type="text" name="fUser">
+                    <input type="hidden" name="destination" value="{{destination}}" />
+                    <p>Password</p>
+                    <input type="password" name="fPass">
+                    <input type="hidden" value='Login' name="submit"/>
+                    <div class="bottom">
+                    	<div class="login">
+                    		<input name="Login" type="submit" value="Login">
+                    	</div>
+                        <div class="forgot-password"><a href="forgot_password.php">Forgot Password</a></div>
+                    </div>
+                    
+                </div>
+                </form>
+            </div> 
+      	</div>
+        <!-- ###################### Content Area Close ###################### -->
+        
+        <!-- ###################### Footer Area Start ###################### -->
+        <div class="login-footer">
+        	<p>Powered by Rapid Residual Pro</p>
+            <img src="../images/all-right-reserved.png" alt="" />
+		</div>
+        <!-- ###################### Footer Area Close ###################### -->
+        
+    </div>
+</body>
+</html>
+

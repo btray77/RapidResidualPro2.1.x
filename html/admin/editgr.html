@@ -1,0 +1,74 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>GetResponse Autoresponder List Management</strong></p>
+
+<div class="buttons">
+    <a href="gr.php">Go back</a>
+    </div>
+
+<div class="formborder">
+<form action="editgr.php" method="post">
+<input type="hidden" name="id" value="{{id}}">
+<table width="95%" align="center" border="0">
+
+	<tr>
+	  <td colspan="2" class="tbtext"><strong>GetResponse Settings </strong></td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="tbtext">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Responder Name:</strong></td>
+      <td><input name="rspname2" class="inputbox" type="text" id="rspname2" value="{{rspname2}}">
+      
+      <div class="tool">	
+		<a href="" class="tooltip" title="Responder name:  is a name for the RRP system to identify the responder settings throughout the script.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      
+      </td>
+	</tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>GR Campaign Name:</strong></td>
+      <td><input name="gr_campaign" class="inputbox" type="text" id="gr_campaign" value="{{gr_campaign}}">
+        <div class="tool">	
+		<a href="" class="tooltip" title="GR Campaign Name:  is the name for the Campaign inside of Getresponse that you want members to be subscibed to. ">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		
+      </td>
+	</tr>
+	<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Update Responder" class="inputbox">		</td>
+	</tr>	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">&nbsp;		</td>
+	</tr>	
+	
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

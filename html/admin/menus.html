@@ -1,0 +1,94 @@
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+<!-- ###################### Error Message End ###################### -->
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Member  Area Menus</strong></p>
+<div class="formborder"><br />
+<br />
+<form action="menus.php" method="post">
+  <table width="95%" align="center" border="0">
+<tr>
+  <td align="left" class="tbtext"><b>Member Menu  : </b></td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">  
+	<div><textarea name="member_menu" cols="100" rows="8" class="inputbox" id="member_menu">{{member_menu}}</textarea> 
+	<script>
+	var oEdit1 = new InnovaEditor("oEdit1");
+	oEdit1.mode="XHTMLBody";
+ 	oEdit1.width="700px";
+	oEdit1.height="450px";
+ 	oEdit1.useTab=false;
+ 	oEdit1.useDIV=false;
+ 	oEdit1.useBR=false;
+	oEdit1.REPLACE("member_menu");
+	</script></div>  </td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><b>Affiliate Menu  : </b></td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">  
+	<div><textarea name="affiliate_menu" cols="100" rows="8" class="inputbox" id="affiliate_menu">{{affiliate_menu}}</textarea>
+	<script>
+	var oEdit2 = new InnovaEditor("oEdit2");
+	oEdit2.mode="XHTMLBody";
+ 	oEdit2.width="700px";
+	oEdit2.height="450px";
+ 	oEdit2.useTab=false;
+ 	oEdit2.useDIV=false;
+ 	oEdit2.useBR=false;
+	oEdit2.REPLACE("affiliate_menu");
+	</script></div>  </td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><b>JV Partner  Menu  : </b></td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">  
+	<div><textarea name="jv_menu" cols="100" rows="8" class="inputbox" id="jv_menu">{{jv_menu}}</textarea>
+	<script>
+	var oEdit3 = new InnovaEditor("oEdit3");
+	oEdit3.mode="XHTMLBody";
+ 	oEdit3.width="700px";
+	oEdit3.height="450px";
+ 	oEdit3.useTab=false;
+ 	oEdit3.useDIV=false;
+ 	oEdit3.useBR=false;
+	oEdit3.REPLACE("jv_menu");
+	</script></div>  </td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+	<td align=left>
+		<input type="submit" name="submit" value="Update Menus" class="inputbox">	</td>
+</tr>
+<tr>
+<td class="tbtext" align="left">
+<br>
+<ul>
+  <li><b>Member Menu</b> is the main menu that regular members will see in the members area. You can edit this to add your own pages to the members area.</li>
+    <li><strong>Affiliate Menu</strong> is the main menu that Affiliates will see in the members area. 
+You can edit this to add your own pages to the affiliate area.</li>
+    <li><strong>JV Partner Menu</strong> is the main menu that JV Partners will see in the members area. You can edit this to add your own pages to the JV Partner area. </li>
+</ul></td>
+</tr>
+</table>
+</form>
+<br />
+<br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>

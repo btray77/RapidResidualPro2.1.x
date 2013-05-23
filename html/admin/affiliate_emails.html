@@ -1,0 +1,71 @@
+<br>
+<table width="75%" border="0" align="center">
+<tr>
+	<td align="center" class="tbheaders">
+	{{Title}}
+	</td>
+</tr>
+<tr>
+	<td align="center" class="tbtext"><font color="red">
+	{{Message}}</font>
+	</td>
+</tr>
+</table>
+<br>
+
+<table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+	<td align=right colspan=7 class="tbtext"><a href='add_affiliate_email.php'>Add Affiliate Email </a></td>
+</tr>
+<tr>
+	<td colspan=7 align="right" class="tbtext">
+		Page __single__ __first__ __previous__  <{page_loopstart}> <{page1}>&nbsp;<{page_loopend}>__next__ __last__</td>
+</tr>
+<tr>
+  <td colspan=7 align="right" class="tbtext">&nbsp;</td>
+</tr>
+</table>
+
+
+
+<table class="sortable" width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+	<td width="70%" align="left">SUBJECT</td>
+	<td width="17%" align="left">PRODUCT</td>
+	<td align="center">EDIT</td>
+    <td align="center">DELETE</td>
+</tr>
+</thead>
+<{Begin}>
+<tr align="left">
+	<td class="tbtext">{{subject}}</td>
+	<td class="tbtext">{{pshort}}</td>
+	<td width="7%" align="center" class="tbtext"><a href="edit_affiliate_email.php?eid={{id}}"><img src="../images/admin/edit.gif" width="16" height="16" border="0" /></a></td>
+	<td width="6%" align="center" class="tbtext"><a href="affiliate_emails.php?act=d&id={{id}}" Onclick="return confirm('Are you sure you want to delete this Email?')"><img src="../images/admin/delete.gif" width="16" height="16" border="0" /></a></td>
+</tr>
+
+<{End}>
+</table>
+
+
+
+
+
+
+<table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+  <td colspan=7 align="right" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan=7 align="right" class="tbtext">Page __single__ __first__ __previous__  <{page_loopstart}> <{page1}>&nbsp;<{page_loopend}>__next__ __last__</td>
+</tr>
+<tr>
+  <td colspan=7 align="left" class="tbtext"><ul>
+    <li><font class=tbtext><b>Edit</b> is used to modify the affiliate email.</font></li>
+    <li><font class=tbtext><b>Delete</b> is used to delete the affiliate email from the system.</font></li>
+    <li><font class=tbtext><b>Add Affiliate Email </b>will allow you to create a new affiliate email</font></li>
+    </ul></td>
+</tr>
+</table>
+<br>

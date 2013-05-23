@@ -1,0 +1,108 @@
+
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<script>
+    $(document).ready(function(){
+	$("#coupons").validate();
+});
+    
+</script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Add Coupon Code</strong></p>
+<div class="buttons"><a	href="coupon.php" >Go Back</a></div>
+<div class="formborder"><br />
+<br />
+
+<form action="addcoupon.php" method="post" id="coupons" name="coupons">
+<table width="95%" border="0" align="center">
+	
+	  <td colspan="2" class="tbtext"><strong>Coupon Code Settings </strong></td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="titles">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Coupon Code:</strong></td>
+      <td><input name="couponcode" class="inputbox required" type="text" id="couponcode" value="{{couponcode}}">
+      <div class="tool">	
+		<a href="" class="tooltip" title="Coupon Code is code you want your users to type into the coupon code box.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Discount Amount: $ </strong></td>
+      <td><input name="discount" class="inputbox required digits" type="text" id="discount" value="{{discount}}"><br>
+      
+      <div class="tool">	
+		<a href="" class="tooltip" title="Discount Amount is the amount you want to take off of the price.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		<font color="#FF0000" size="1">NOTE: Remember, this is the amount to take off, not the discounted final price!</font>
+      </td>
+	</tr>
+	<tr>
+	  <td class="tbtext"><strong>Associate To Product:</strong></td>
+      <td><select name="pproduct" class="inputbox" id="pproduct">
+			<option value=0>Select</option>
+			{{pproduct}}
+		</select>
+		<div class="tool">	
+		<a href="" class="tooltip" title="Associate To Product is where you choose which product you want to use this coupon code.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		</td>
+	</tr>
+	<tr class=tbtext>
+	<td align="left" class="tbtext"><b>Expire Date:</b></td>
+	<td colspan="2" align="left">
+<input name="expire_date" type="text" class="inputbox" id="expire_date" value='{{expire_date}}' size="30"> <a href="javascript: NewCssCal('expire_date','yyyymmmdd','arrow',true,12)">
+<img src="../images/admin/cal.gif" border="0" width="16" height="16" alt="Pick a date"></a>
+	<div class="tool">	
+		<a href="" class="tooltip" title="Expire Date  is the date and time you want the coupon code to expire. Once this date and time has been reached the coupon code will no longer be valid and will no longer work.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	</td>
+    </tr>
+	<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+    
+    <tr class=tbtext>
+	<td align="left" class="tbtext"><b>Publish:</b></td>
+	<td colspan="2" align="left">
+		<input type="checkbox" name="publish" id="publish" value="1">	
+		<div class="tool">	
+		<a href="" class="tooltip" title="Publish status.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	</td>
+    </tr>
+	<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+    
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Add Coupon Code" class="inputbox">		</td>
+	</tr>	
+	
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>

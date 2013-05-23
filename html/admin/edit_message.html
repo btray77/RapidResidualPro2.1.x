@@ -1,0 +1,44 @@
+<br>
+<center>
+ <font class="titles">
+ Edit Coaching Message</font><br>  
+ 
+ <font class="error"><b>
+	{{warning}}</b></font>
+</center>
+
+<form name="editmessage" action="edit_message.php" method="post" enctype="multipart/form-data" onsubmit="return formCheck(editpage);">
+<input type="hidden" name="id" value="{{id}}">
+<input type="hidden" name="mid" value="{{mid}}">
+<input type="hidden" name="product" value="{{product}}">
+
+<table width="95%" align="center" border="0">
+<tr>
+	<td colspan="2" align="right" class="tbtext"><a href="member_messages.php?mid=1&amp;product={{product}}">Back to Coaching Messages</a></td>
+	</tr>
+
+<tr>
+  <td colspan="2" align="left" class="tbtext"><b>Coaching Message:</b></td>
+  </tr>
+<tr>
+  <td colspan="2" align="left" class="tbtext"></td>
+</tr>
+<tr>
+  <td colspan="2" align="left" class="tbtext">  
+   <textarea name="message" cols="100" rows="8" class="inputbox" id="message"><{message}></textarea>
+</td>
+</tr>
+<tr>
+  <td colspan="2" align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="2" align="left">	
+	    <input type="submit" name="submit" value="Update Coaching Message" class="inputbox"></td>
+</tr>
+
+<tr>
+	<td colspan="2" align="center">	</td>
+</tr>
+
+</table>
+</form>

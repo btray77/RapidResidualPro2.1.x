@@ -1,0 +1,196 @@
+BODY, TD
+	{
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FONT-FAMILY: arial, verdana, helvetica;
+	FONT-SIZE: 10px;
+	PADDING-TOP: 0px
+	}
+
+P
+	{
+	padding-top:5px; 
+	}
+
+A:link
+	{
+	font-size:12pt;
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+	}
+	
+A:visited
+	{
+	font-size: 12pt;
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+	}
+	
+A.img:hover
+	{
+	font-size: 12pt;
+	BACKGROUND: none, transparent, scroll, repeat, 0%, 0%;
+	}
+	
+A:hover
+	{
+	font-size: 12pt;
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+	}
+	
+.logotext
+	{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif;
+	}
+	
+.tbtext
+	{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+	color: #000000;
+	}
+	
+.tbheaders
+	{
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #000000;
+	text-transform: uppercase;
+	}
+			
+.tbtextwhite
+	{ 
+	font-family: Arial, Verdana, Helvetica, sans-serif; 
+	font-size: 12pt; 
+	font-style: normal; 
+	font-weight: normal; 
+	color: #FFFFFF; 
+	background-color:#666699;
+	}
+		
+.titles
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	text-transform: uppercase;
+	color: #000000;
+	font-weight: bold;
+	}
+	
+.inputbox
+	{
+	BORDER-RIGHT: #b5c7d9 1px solid;
+	BORDER-TOP: #b5c7d9 1px solid;
+	MARGIN-TOP: 0px;
+	DISPLAY: inline;
+	MARGIN-BOTTOM: 0px;
+	BORDER-LEFT: #b5c7d9 1px solid;
+	BORDER-BOTTOM: #b5c7d9 1px solid;
+	BACKGROUND-COLOR: #e1eafb;
+	FONT: 12px Arial, Tahoma, Verdana;
+	}
+	
+input
+	{
+	BORDER-BOTTOM: rgb(100,100,100) 1px solid;
+	BORDER-LEFT: rgb(100,100,100) 1px solid;
+	BORDER-RIGHT: rgb(100,100,100) 1px solid;
+	BORDER-TOP: rgb(100,100,100) 1px solid;
+	FONT: 12px Arial, Tahoma, Verdana;
+	background-color : white;
+	background : white;
+	}
+			
+textarea
+	{
+	BORDER-BOTTOM: rgb(100,100,100) 1px solid;
+	BORDER-LEFT: rgb(100,100,100) 1px solid;
+	BORDER-RIGHT: rgb(100,100,100) 1px solid;
+	BORDER-TOP: rgb(100,100,100) 1px solid;
+	FONT: 12px Arial, Tahoma, Verdana;
+	background-color : white;
+	background : white;
+	}
+	
+.error
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 7.5pt;
+	font-style: normal;
+	font-weight: normal;
+	color: red;
+	}
+
+.border
+	{
+	border: 1px solid #000000;
+	}
+	
+.copyright
+	{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    COLOR: #000000;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+TD
+	{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	}
+
+.error
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt; font-style: normal;
+	font-weight: normal;
+	color: red;
+	}
+
+h1 {
+	font-family :Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 26px;
+	padding : 1 0 0 0;
+	margin-bottom : 0;
+	margin-top : 1;
+	margin-left : 0;
+	margin-right : 0;
+	}
+
+td.admin_index_news_border
+	{
+	border: 1px #000000 solid;
+	padding: 8px 8px 8px 8px;
+	margin: 0px 0px 0px 0px;
+	color: #000000;
+	font-size: 12px;
+	font-family: verdana, arial, sans-serif;
+	}
+	
+table.sortable{border:0; padding:0; margin:0; align:center;}	
+table.sortable td{padding:4px; border-bottom:solid 1px #DEDEDE;}
+table.sortable th{padding:4px;}
+table.sortable thead{background:#e3edef; color:#333333; text-align:center;}
+table.sortable tfoot{font-weight:bold; }
+table.sortable tfoot td{border:none;}
+
+table.notsortable{border:0; padding:0; margin:0; align:center;}
+table.notsortable td{padding:4px; border-bottom:solid 1px #DEDEDE;}
+table.notsortable th{padding:4px;}
+table.notsortable thead{background:#e3edef; color:#333333; text-align:center;}
+table.notsortable tfoot{font-weight:bold; }
+table.notsortable tfoot td{border:none;}

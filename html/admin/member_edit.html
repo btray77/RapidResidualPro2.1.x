@@ -1,0 +1,130 @@
+
+
+<!-- ###################### Error Message Start ###################### -->
+{{error}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script src="../common/newLayout/js_validation/validation.js" type="text/javascript" charset="utf-8"></script>
+<script type='text/javascript' src='../common/newLayout/jquery.autocomplete.js'></script>
+<link rel="stylesheet" type="text/css" href="../common/newLayout/jquery.autocomplete.css" />
+
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>{{Title}}</strong></p>
+
+<div class="buttons">
+    <a href="member_view.php">Go back</a>
+    </div>
+
+<div class="formborder">
+
+<br>
+<form name="member-act" action="member_edit.php" method="post" enctype="multipart/form-data" onsubmit="return doValidate('member-act');">
+<input type="hidden" name="Act" value="{{act}}">
+<input type="hidden" name="pid" value="{{id}}">
+<table width="95%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr>
+	<td class="tbtext" align="left">
+	<b>First Name*:</b></td>
+	<td class="tbtext" align="left"><input type="text" name="firstname" id="firstname" size="60" value="{{firstname}}" class="inputbox"><label class="req" id="lbl_fname"></label></td>
+</tr>
+<tr>
+	<td class="tbtext" align="left">
+	<b>Last Name*:</b></td>
+	<td class="tbtext" align="left"><input type="text" name="lastname" id="lastname" size="60" value="{{lastname}}" class="inputbox"><label class="req" id="lbl_lname"></label></td>
+</tr>
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>User Name: </b></td>
+	<td width="72%" align="left" class="tbtext"><input name="username" type="text" class="inputbox" value="{{username}}" size="60"></td>
+    </tr>
+<tr>
+	<td class="tbtext" align="left">
+	<b>Email Address*:</b></td>
+	<td class="tbtext" align="left"><input type="text" name="email" id="email" size="60" value="{{email}}" class="inputbox"><label class="req" id="lbl_email"></label></td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>PayPal Email:</b></td>
+  <td class="tbtext" align="left"><input name="paypal_email" type="text" class="inputbox" id="paypal_email" value="{{paypal_email}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>Alert Pay Email:</b></td>
+  <td class="tbtext" align="left"><input name="alertpay_email" type="text" class="inputbox" id="alertpay_email" value="{{alertpay_email}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>ClickBank ID:</b></td>
+  <td class="tbtext" align="left"><input name="clickbank_email" type="text" class="inputbox" id="clickbank_email" value="{{clickbank_email}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>Postal Address:</b></td>
+  <td class="tbtext" align="left"><input name="address_street" type="text" class="inputbox" id="address_street" value="{{address_street}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>City:</b></td>
+  <td class="tbtext" align="left"><input name="address_city" type="text" class="inputbox" id="address_city" value="{{address_city}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>State / County:</b></td>
+  <td class="tbtext" align="left"><input name="address_state" type="text" class="inputbox" id="address_state" value="{{address_state}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>Postal / Zip Code:</b></td>
+  <td class="tbtext" align="left"><input name="address_zipcode" type="text" class="inputbox" id="address_zipcode" value="{{address_zipcode}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>Country:</b></td>
+  <td class="tbtext" align="left"><input name="address_country" type="text" class="inputbox" id="address_country" value="{{address_country}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>Telephone Number:</b></td>
+  <td class="tbtext" align="left"><input name="telephone" type="text" class="inputbox" id="telephone" value="{{telephone}}" size="60" />  </td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><strong>Referal Username: </strong></td>
+  <td class="tbtext" align="left"><input type="text" name="referal" class="inputbox" id="referal" value="{{ref}}" /></td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><b>Skype Id:</b></td>
+  <td class="tbtext" align="left"><input name="skypeid" type="text" class="inputbox" id="skypeid" value="{{skypeid}}" size="60" />  </td>
+</tr>
+	<tr>
+	  <td class="tbtext" align="left"><b>Status:</b></td>
+	  <td align="left" class="tbtext"><select name="status" class=inputbox>
+			<option value="1" {{false9}}>Affiliate</option>
+			<option value="2" {{true9}}>Member</option>
+			<option value="3" {{truea9}}>JV Partner</option>
+		</select></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left">&nbsp;</td>
+    </tr>
+    <tr>
+	<td colspan="2" align="left"><input type="submit" name="submit" value="Update Member Profile" class="inputbox"></td>
+</tr>
+</table>
+</form>
+
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+			$("#referal").autocomplete("get_users_list.php", {
+			width: 260,
+			matchContains: true,
+			//mustMatch: true,
+			//minChars: 0,
+			//multiple: true,
+			//highlight: false,
+			//multipleSeparator: ",",
+			selectFirst: false
+
+			});	
+		});
+</script>

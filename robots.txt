@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /bin/
+Disallow: /common/
+Disallow: /dbbackups/
+Disallow: /dumper/
+Disallow: /html/
+Disallow: /ipn/
+Disallow: /mediaplayer/
+Disallow: /member/
+Disallow: /smarty/
+Disallow: /templates/
+Disallow: /images/

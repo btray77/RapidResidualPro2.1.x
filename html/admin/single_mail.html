@@ -1,0 +1,63 @@
+
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Single Member  Mail</strong></p>
+
+<div class="buttons">
+    <a href="member_view.php">Go back</a>
+    </div>
+
+<div class="formborder">
+{{hide_begin}}
+<form action="single_mail.php" method="post">
+<input type="hidden" name="mid" value='{{mid}}'>
+<table align="center" width="95%" border="0" cellpadding="3" cellspacing="3">
+<tr>
+	<td class="tbtext" colspan="2" align="center">Variables used in Email: {firstname}, {lastname}, {username}</td>
+</tr>
+<tr>
+  <td class="tbtext" colspan="2" align="center">&nbsp;</td>
+</tr>
+<tr>
+	<td width="20%" align="left" class="tbtext"><b>Subject:&nbsp;</b></td>
+	<td>
+	  <input type="text" name="subject" class="inputbox" value="{{email_subject}}" size=60 >	  </td>
+</tr>
+<tr>
+	<td class="tbtext" align="left" valign=top><b>Message:&nbsp;</b></td>
+	<td>
+	  <textarea name="message" cols="60" rows="8" class="inputbox">{{email_message}}</textarea>	  </td>
+</tr>
+
+<tr>
+  <td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="2"><input type="submit" name="send" value="Send" class="inputbox"></td>
+	</tr>
+</table>
+</form>
+
+  {{hide_end}}
+  
+  
+  
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

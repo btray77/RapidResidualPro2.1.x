@@ -1,0 +1,125 @@
+
+-------------------------------DATA RECEIVED ------------------------- 
+Array
+(
+    [ap_merchant] => seller_2_yasir.rehman@live.com
+    [ap_securitycode] => 1Pg7KfEAhYD3fKOj
+    [ap_custfirstname] => Client_1_FName_yasir.rehman
+    [ap_custlastname] => Client_1_LName_yasir.rehman
+    [ap_custaddress] => SY
+    [ap_custcity] => YRWML
+    [ap_custstate] => NY
+    [ap_custcountry] => USA
+    [ap_custzip] => 97341
+    [ap_custemailaddress] => client_1_yasir.rehman@live.com
+    [ap_shipaddress] => SY
+    [ap_shipcity] => YRWML
+    [ap_shipstate] => NY
+    [ap_shipcountry] => USA
+    [ap_shipzip] => 97341
+    [apc_1] => 8005cee56df4182ba464aa7f2724fe9a
+    [apc_2] => 203.99.176.97
+    [apc_3] => 
+    [apc_4] => inside
+    [apc_5] => OTO
+    [apc_6] => 
+    [ap_test] => 1
+    [ap_purchasetype] => item-goods
+    [ap_referencenumber] => TEST TRANSACTION
+    [ap_amount] => 100.00
+    [ap_quantity] => 1
+    [ap_currency] => USD
+    [ap_description] => 
+    [ap_itemcode] => 5
+    [ap_itemname] => One Time Offer 1
+    [ap_shippingcharges] => 0
+    [ap_additionalcharges] => 0
+    [ap_taxamount] => 0
+    [ap_discountamount] => 0
+    [ap_totalamount] => 100.00
+    [ap_ipnversion] => 0
+    [ap_feeamount] => 0.0
+    [ap_netamount] => 0.0
+    [ap_transactiontype] => purchase
+    [ap_alerturl] => 
+    [ap_transactiondate] => 2011-10-21 06:09:03
+    [ap_status] => Success
+)
+
+-------------------------------DATA RECEIVED ------------------------- 
+
+Going Further to Database...
+
+Database Included Sucessfully!...
+
+Common Included Sucessfully!...
+
+Alertpay  Included Sucessfully!...
+
+-------------------------------IPN DATA RECEIVED ------------------------- 
+START AT: 2011-10-21 05:09:08
+
+---------------IPN STARTS -------------------
+
+IPN CODE: 1Pg7KfEAhYD3fKOj
+
+BUSINESS EMAIL ADDRESS: seller_2_yasir.rehman@live.com
+
+-------------------------------DATA REVEIVED ------------------------- 
+Array
+(
+    [ap_merchant] => seller_2_yasir.rehman@live.com
+    [ap_securitycode] => 1Pg7KfEAhYD3fKOj
+    [ap_custfirstname] => Client_1_FName_yasir.rehman
+    [ap_custlastname] => Client_1_LName_yasir.rehman
+    [ap_custaddress] => SY
+    [ap_custcity] => YRWML
+    [ap_custstate] => NY
+    [ap_custcountry] => USA
+    [ap_custzip] => 97341
+    [ap_custemailaddress] => client_1_yasir.rehman@live.com
+    [ap_shipaddress] => SY
+    [ap_shipcity] => YRWML
+    [ap_shipstate] => NY
+    [ap_shipcountry] => USA
+    [ap_shipzip] => 97341
+    [apc_1] => 8005cee56df4182ba464aa7f2724fe9a
+    [apc_2] => 203.99.176.97
+    [apc_3] => 
+    [apc_4] => inside
+    [apc_5] => OTO
+    [apc_6] => 
+    [ap_test] => 1
+    [ap_purchasetype] => item-goods
+    [ap_referencenumber] => TEST TRANSACTION
+    [ap_amount] => 100.00
+    [ap_quantity] => 1
+    [ap_currency] => USD
+    [ap_description] => 
+    [ap_itemcode] => 5
+    [ap_itemname] => One Time Offer 1
+    [ap_shippingcharges] => 0
+    [ap_additionalcharges] => 0
+    [ap_taxamount] => 0
+    [ap_discountamount] => 0
+    [ap_totalamount] => 100.00
+    [ap_ipnversion] => 0
+    [ap_feeamount] => 0.0
+    [ap_netamount] => 0.0
+    [ap_transactiontype] => purchase
+    [ap_alerturl] => 
+    [ap_transactiondate] => 2011-10-21 06:09:03
+    [ap_status] => Success
+)
+
+-------------------------------DATA REVEIVED ------------------------- 
+IPN comming from alert Pay OK.
+getting member: 8005cee56df4182ba464aa7f2724fe9a 253.
+setting order:  351.
+Random :  .
+Purchase Type:  item-goods.
+Add product into Member table:  TEST TRANSACTION.
+closing All.
+
+------------------------------- IPN DATA RECEIVED ------------------------- 
+All Process Done

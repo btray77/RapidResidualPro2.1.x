@@ -1,0 +1,41 @@
+<br /><center>
+	<font class="titles"><b>Kunaki Settings</b></font><br>
+	<font class=error>{{msg}}</font>
+</center>
+<form action="kunaki.php" method="post">
+<table width="95%" border="0" align="center">
+  	<tr>
+    	<td colspan="2" align="left" class="tbtext"><b>Kunaki Login Details</b></td>
+  	</tr>
+  	<tr>
+  	  <td colspan="2" align="left" class="tbtext">&nbsp;</td>
+    </tr>
+    	<tr>
+    	<td align="left" class="tbtext"><b>Kunaki Username:</b></td>
+    	<td align="left">
+        <input name="kunaki_user" type="text" class="inputbox" id="description" value='{{kunaki_user}}' size="60" />    </td>
+    </tr>
+	<tr>
+    	<td align="left" class="tbtext"><b>Kunaki Password:</b></td>
+    	<td align="left">
+        <input name="kunaki_pass" type="password" class="inputbox" id="description" value='{{kunaki_pass}}' size="60" />    </td>
+    </tr> 	
+	<tr>
+	  <td colspan="2">&nbsp;</td>
+    </tr>
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Edit Kunaki Settings" class="inputbox">		</td>
+	</tr>	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">&nbsp;		</td>
+	</tr>	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">
+	<ul>
+		<li><b>Kunaki Username</b > is the username you use to log into Kunaki.</li>        
+		<li><b>Kunaki Password </b>is the password you use to log into Kunaki.</li>     
+	  </ul>	</td>
+	</tr>
+</table>
+</form>

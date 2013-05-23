@@ -1,0 +1,81 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{message}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Marketing Banners Management</strong></p>
+<div class="buttons"><a href='market_banners.php'>Go Back</a></div>
+<div class="formborder"><br />
+<br />
+
+
+
+<form name=form method=post action='getbanner.php?bid={{bid}}&act={{act}}' enctype="multipart/form-data">
+<table align="center" width="90%" border="0" cellpadding="5" cellspacing="0">
+<tr class=tbtext>
+	<td width=28% class="tbtext" align=left><b>Select Product :&nbsp;</b>&nbsp;</td>
+	<td width="72%" align="left">
+		<select name=selprod class="inputbox">
+		{{prods_display}}
+		</select>
+		<div class="tool">	
+		<a href="" class="tooltip" title="Select Product  is used to select the product this banner is associated with.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		
+			</td>
+</tr>
+<tr class=tbtext>
+	<td width=28% class="tbtext" align=left><b>Enter Banner url :</b>&nbsp;</td>
+	<td width="72%" align="left"><input type=text name=banner_url value='{{banner_url}}' class="inputbox" size=60>
+	<div class="tool">	
+		<a href="" class="tooltip" title="Enter Banner Url  is used if the banner is located on a web server. The image will be uploaded to your images/marketing directory.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	</td>
+</tr>
+<tr><td class=tbtext colspan=2 align=left>or</td></tr>
+<tr class=tbtext>
+	<td width=28% class="tbtext" align=left><b>Upload Banner Image :</b>&nbsp;</td>
+	<td width="72%" align="left"><input type=file name=upload_url value='{{upload_url}}' class="inputbox" size=60>
+	<div class="tool">	
+		<a href="" class="tooltip" title="Upload Banner Image is used if the banner is located on your local computer. The image will be uploaded to your images/marketing directory.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	</td>
+</tr>
+<tr class=tbtext valign=top>
+	<td width=28% class="tbtext" align=left><b>Old Banner Image :</b>&nbsp;</td>
+	<td width="72%" align="left"><div class="tool">	
+		<a href="" class="tooltip" title="Old Banner Image will display the existing banner image if you are editing an existing one. It will be blank if you are adding a new banner image.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div></td>
+</tr>
+<tr><td colspan=2 align=center>{{old_img}}</td></tr>
+<tr>
+  <td colspan=2 align=center>&nbsp;</td>
+</tr>
+<tr class=tbtext>
+	<td colspan="2" align=left><input type=submit name=submit value='Submit' class="inputbox"></td>
+	</tr>
+<tr class=tbtext>
+  <td colspan="2" align=left>&nbsp;</td>
+</tr>
+
+</table>
+</form>
+<br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>

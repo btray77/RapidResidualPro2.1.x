@@ -1,0 +1,89 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Aweber Autoresponder List Management</strong></p>
+
+<div class="buttons">
+    <a href="aweber.php">Go back</a>
+    </div>
+
+<div class="formborder">
+<form action="addaweber.php" method="post">
+<table width="95%" align="center" border="0">
+	<tr>
+	  <td colspan="2" class="tbtext"><strong>Aweber Settings</strong></td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="tbtext">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Responder Name :</strong></td>
+      <td><input name="rspname2" class="inputbox" type="text" id="rspname2" value="{{rspname2}}">
+      <div class="tool">	
+		<a href="" class="tooltip" title="Responder Name: What you want to call this autoresponder to remember it here. ">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>*Aweber List Name:</strong></td>
+      <td><input name="aweber_unit" class="inputbox" type="text" id="aweber_unit" value="{{aweber_unit}}">
+      
+      <div class="tool">	
+		<a href="" class="tooltip" title="Aweber List Name:The name of this autoresponder list in aWeber ">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	<tr>
+	  <td class="tbtext"><strong>*Aweber Meta Web Form ID:</strong></td>
+      <td><input name="aweber_meta" class="inputbox" type="text" id="aweber_meta" value="{{aweber_meta}}">
+      
+      <div class="tool">	
+		<a href="" class="tooltip" title="Aweber Meta Web Form ID: Series of numbers you can find in the java code that identifies this aWeber list ">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Add Autoresponder" class="inputbox">		</td>
+	</tr>
+	<tr>
+	  <td colspan="2">&nbsp;</td>
+    </tr>
+	
+	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">* These fields can be found inside the code for your signup form supplied by your autoresponder service. </td>
+	</tr>
+	
+
+	
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

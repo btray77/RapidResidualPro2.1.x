@@ -1,0 +1,71 @@
+<html>
+<head>
+<link href="../common/newLayout/css.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body,table,table tr td,input {
+	font-size: 12px;
+}
+</style>
+<title><?php echo $sitename?>: - Content Page Link</title>
+
+</head>
+<body>
+<br>
+<table width="95%" border="0" align="center" cellpadding="0"
+	cellspacing="0">
+	<tr>
+		<td>Use the link below to enter into your site menus to allow
+		access to this page.</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<table width="95%" border="0" align="center" cellpadding="5"
+	cellspacing="0" bgcolor="#FFFFFF" style="border: 1px solid #CCC;">
+	<tr>
+		<td align="right" valign="top">
+		<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			<tr valign="top">
+				<td width="25%" align="left" valign="middle" class="black">Content
+				Page Link:</td>
+				<td width="68%">
+				<textarea cols="50" rows="2" ><a href=<?php echo $pagelink?>><?php echo $filename?></a></textarea>
+				
+				</td>
+			</tr>
+			<tr valign="top">
+				<td colspan="2" align="center" valign="middle" class="black">
+				
+				</td>
+			</tr>
+
+			<?php
+			 if ($access == 3 || $access == 1){ $pageurl=$http_path.'/member/'.$pagelink; ?>
+			<tr valign="top">
+				<td align="left" valign="middle" class="black">Member area link:</td>
+				<td>
+				<textarea cols="50" rows="2" ><?php echo  $http_path.'/member/'.$pagelink;?></textarea>
+				</td>
+			</tr>
+
+			<?php } else { $pageurl= $http_path.'/'.$pagelink;?>
+			<tr valign="top">
+				<td align="left" valign="middle" class="black">Outside link:</td>
+				<td>
+				<textarea cols="50" rows="2" ><?php echo  $http_path.'/'.$pagelink;?></textarea>
+				</td>
+			</tr>
+			<?php }?>
+			<tr>
+			<td colspan="2">
+			<br>
+			<a href="<?php echo $pageurl; ?>" target="_blank">Click Here To View</a></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

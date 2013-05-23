@@ -1,0 +1,381 @@
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+<!-- ###################### Error Message End ###################### -->
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Customize Legal Documents </strong></p>
+<div class="formborder">
+<form action="tpd.php" method="post">
+  <table align="center" width="95%" border="0">
+  <tr class=tbtext>
+ 
+  	  <td valign=top class="tbtext"><p><b>Earnings Disclaimer:<br />
+  	  
+  	  
+  	  
+  	  </td>
+    </tr>
+  <tr>
+    <td class="tbtext">	
+	<div><textarea name="disclaimer" cols="100" rows="8" class="inputbox" id="disclaimer">{{disclaimer}}</textarea>
+	<div class="tool">	
+		<a href="" class="tooltip" title="Earnings Disclaimer is where you put your earnings disclaimer. Make sure to customize this for your own site.">
+      	<img src="../images/toolTip.png" alt="help"/>
+		</a>
+	</div>
+	<script>
+	var oEdit1 = new InnovaEditor("oEdit1");
+    oEdit1.width = 700;
+    oEdit1.height = 450;
+	
+   
+    oEdit1.groups = [
+    ["grpEdit1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog", "Styles", "RemoveFormat"]],
+    ["grpEdit2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+    ["grpEdit3", "", ["TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "ImageDialog", "YoutubeDialog"]],
+    ["grpEdit4", "", ["CharsDialog", "Line", "BRK"]],
+    ["grpEdit5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen"]]
+    ];
+   
+    /*Enable Custom File Browser */
+	
+	oEdit1.fileBrowser = "/admin/Editor/assetmanager/asset.php";
+    /*Define "CustomTag" dropdown */
+   // oEdit1.arrCustomTag=[["First Name","{\{firstname\}}"]];//Define custom tag selection
+    /*Apply stylesheet for the editing content*/
+    oEdit1.css = "/admin/Editor/styles/default.css";
+    /*Render the editor*/
+	oEdit1.REPLACE("disclaimer");
+	</script></div>	</td>
+  </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">&nbsp;</td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Terms Of Service:</b><br />
+  	 </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+	  <div><textarea name="terms" cols="100" rows="8" class="inputbox" id="terms">{{terms}}</textarea>
+	  <div class="tool">	
+	<a href="" class="tooltip" title="Terms Of Service is where you put your site terms of service. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+	<script>
+	
+	
+	var oEdit2 = new InnovaEditor("oEdit2");
+	oEdit2.mode="XHTMLBody";
+	oEdit2.width="700px";
+ 	oEdit2.height="450px";
+	oEdit2.useTab=false;
+	oEdit2.useDIV=false;
+	oEdit2.useBR=false;
+	oEdit2.REPLACE("terms");
+	</script></div>	  </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">&nbsp;</td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Privacy Policy:<br />
+  	  </b><font class=tbtext></font></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">
+		<div><textarea name="privacy" cols="100" rows="8" class="inputbox" id="privacy">{{privacy}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Privacy Policy is where you put your site privacy policy. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		
+		
+		<script>
+		var oEdit3 = new InnovaEditor("oEdit3");
+		oEdit3.mode="XHTMLBody";
+ 		oEdit3.width="700px";
+	 	oEdit3.height="450px";
+ 		oEdit3.useTab=false;
+ 		oEdit3.useDIV=false;
+ 		oEdit3.useBR=false;
+		oEdit3.REPLACE("privacy");
+		</script></div>	  </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Contact:
+  	  </b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="contact" cols="100" rows="8" class="inputbox" id="contact">{{contact}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Contact is where you put your contact information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit4 = new InnovaEditor("oEdit4");
+		oEdit4.mode="XHTMLBody";
+ 		oEdit4.width="700px";
+	 	oEdit4.height="450px";
+ 		oEdit4.useTab=false;
+ 		oEdit4.useDIV=false;
+ 		oEdit4.useBR=false;
+		oEdit4.REPLACE("contact");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Affiliate Agreement:</b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="affiliate" cols="100" rows="8" class="inputbox" id="affiliate">{{affiliate}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Affiliate Agreement is where you put your affiliate agreement information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit5 = new InnovaEditor("oEdit5");
+		oEdit5.mode="XHTMLBody";
+ 		oEdit5.width="700px";
+	 	oEdit5.height="450px";
+ 		oEdit5.useTab=false;
+ 		oEdit5.useDIV=false;
+ 		oEdit5.useBR=false;
+		oEdit5.REPLACE("affiliate");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Compensation Disclosure:</b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="compensation" cols="100" rows="8" class="inputbox" id="compensation">{{compensation}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Compensation Disclosure is where you put your compensation disclosure information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit6 = new InnovaEditor("oEdit6");
+		oEdit6.mode="XHTMLBody";
+ 		oEdit6.width="700px";
+	 	oEdit6.height="450px";
+ 		oEdit6.useTab=false;
+ 		oEdit6.useDIV=false;
+ 		oEdit6.useBR=false;
+		oEdit6.REPLACE("compensation");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Refund Policy:</b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="refund" cols="100" rows="8" class="inputbox" id="refund">{{refund}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Refund Policy is where you put your refund policy information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit7 = new InnovaEditor("oEdit7");
+		oEdit7.mode="XHTMLBody";
+ 		oEdit7.width="700px";
+	 	oEdit7.height="450px";
+ 		oEdit7.useTab=false;
+ 		oEdit7.useDIV=false;
+ 		oEdit7.useBR=false;
+		oEdit7.REPLACE("refund");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Membership Agreement:</b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="membership" cols="100" rows="8" class="inputbox" id="membership">{{membership}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Membership Agreement is where you put your membership agreement information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit8 = new InnovaEditor("oEdit8");
+		oEdit8.mode="XHTMLBody";
+ 		oEdit8.width="700px";
+	 	oEdit8.height="450px";
+ 		oEdit8.useTab=false;
+ 		oEdit8.useDIV=false;
+ 		oEdit8.useBR=false;
+		oEdit8.REPLACE("membership");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Health Disclaimer:</b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="health" cols="100" rows="8" class="inputbox" id="health">{{health}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Health Disclaimer is where you put your health disclaimer information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit9 = new InnovaEditor("oEdit9");
+		oEdit9.mode="XHTMLBody";
+ 		oEdit9.width="700px";
+	 	oEdit9.height="450px";
+ 		oEdit9.useTab=false;
+ 		oEdit9.useDIV=false;
+ 		oEdit9.useBR=false;
+		oEdit9.REPLACE("health");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>DMCA Notice:</b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="dmca" cols="100" rows="8" class="inputbox" id="dmca">{{dmca}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="DMCA Notice is where you put your dmca notice information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit10 = new InnovaEditor("oEdit10");
+		oEdit10.mode="XHTMLBody";
+ 		oEdit10.width="700px";
+	 	oEdit10.height="450px";
+ 		oEdit10.useTab=false;
+ 		oEdit10.useDIV=false;
+ 		oEdit10.useBR=false;
+		oEdit10.REPLACE("dmca");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>External Links Policy:<br />
+  	  </b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="links" cols="100" rows="8" class="inputbox" id="links">{{links}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="External Links Policy is where you put your external links policy information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit11 = new InnovaEditor("oEdit11");
+		oEdit11.mode="XHTMLBody";
+ 		oEdit11.width="700px";
+	 	oEdit11.height="450px";
+ 		oEdit11.useTab=false;
+ 		oEdit11.useDIV=false;
+ 		oEdit11.useBR=false;
+		oEdit11.REPLACE("links");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr class=tbtext>
+  	  <td valign=top class="tbtext"><p><b>Anti Spam Policy:<br />
+  	  </b></p>      </td>
+    </tr>
+  	<tr class=tbtext>
+  	  <td valign=top class="tbtext">	  
+		<div><textarea name="antispam" cols="100" rows="8" class="inputbox" id="antispam">{{antispam}}</textarea><div class="tool">	
+	<a href="" class="tooltip" title="Anti Spam Policy is where you put your anti spam policy information. Make sure to customize this for your own site.">
+  	<img src="../images/toolTip.png" alt="help"/>
+	</a>
+	</div>
+		<script>
+		var oEdit12 = new InnovaEditor("oEdit12");
+		oEdit12.mode="XHTMLBody";
+ 		oEdit12.width="700px";
+	 	oEdit12.height="450px";
+ 		oEdit12.useTab=false;
+ 		oEdit12.useDIV=false;
+ 		oEdit12.useBR=false;
+		oEdit12.REPLACE("antispam");
+		</script></div>	  </td>
+    </tr>
+	<tr>
+	  <td>&nbsp;</td>
+    </tr>
+	<tr>
+		<td>
+	  	<input type="submit" name="submit" value="Update Legal Pages" class="inputbox">		</td>
+	</tr>
+	
+	
+	<tr>
+		<td align="left" class="tbtext">&nbsp;		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" class="tbtext">
+		<!-- 
+		<ul>
+		  <li><strong><font color="#CC0000">NOTE</font></strong>: <font color="#CC0000">If you want a great source for getting your legal documents created simply, easily, and by a qualified attorney, then you should check out this legal documents software: </font><a href="http://www.rapidresidualpro.com/recommends/legal" title="Mike Young Law - Legal Forms Generator Software" target="_blank"><strong>www.rapidresidualpro.com/recommends/legal</strong></a> (opens in a new window)</li>
+		  <li><b>Earnings Disclaimer </b >is where you put your earnings disclaimer. Make sure to customize this for your own site.</li>
+		  <li><b>Terms Of Service</b> is where you put your site terms of service. Make sure to customize this for your own site.</li>
+		  <li><b>Privacy Policy</b> is where you put your site privacy policy. Make sure to customize this for your own site.</li>
+	      <li><b>Contact</b> is where you put your contact information. 
+          Make sure to customize this for your own site.</li>
+	      <li><strong>Affiliate Agreement</strong> is where you put your affiliate agreement information. 
+          Make sure to customize this for your own site.</li>
+		  <li><strong>Compensation Disclosure</strong> is where you put your compensation disclosure information. 
+          Make sure to customize this for your own site.</li>
+		  <li><strong>Refund Policy</strong> is where you put your refund policy information. 
+          Make sure to customize this for your own site.</li>
+		  <li><strong>Membership Agreement</strong> is where you put your membership agreement information. 
+          Make sure to customize this for your own site.</li>
+		  <li><strong>Health Disclaimer</strong> is where you put your health disclaimer information. 
+          Make sure to customize this for your own site.</li>
+	      <li><strong>DMCA Notice</strong> is where you put your dmca notice information. 
+          Make sure to customize this for your own site.</li>
+		  <li><strong>External Links Policy</strong> is where you put your external links policy information. 
+          Make sure to customize this for your own site.</li>
+		  <li><strong>Anti Spam Policy</strong> is where you put your anti spam policy information. 
+          Make sure to customize this for your own site.</li>
+		</ul>
+		 -->
+				</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

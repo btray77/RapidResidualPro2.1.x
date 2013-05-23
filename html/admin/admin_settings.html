@@ -1,0 +1,57 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Admin Settings</strong></p>
+<div class="buttons">
+<a href="change_login.php" >Change Password</a></div>
+<div class="formborder"> <br /> <br />
+
+<form action="admin_settings.php" method="post">
+<div style="margin-left: 200px;">
+<table width="95%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr> <td colspan="2"><span style="color: red">All fields with ( * ) are mandatory.</span></td></tr>
+<tr>
+	<td width="25%" align="left" class="tbtext">
+		<b>Admin Username:</b></td>
+  		<td width="81%" colspan="2" align="left" class="tbtext">
+		  <input type="text" name="fUser" class="inputbox" value="{{fUser}}" size="30" /> <span style="color: red">*</span>		
+        </td>
+        <td>	
+        
+         <a href=""  class="tooltip" title="Admin Username: This is your login name for the admin panel."> 
+		<img src="../images/toolTip.png" alt="help"/>
+       	
+        </td>
+</tr>
+<tr>
+	<td align="left" class="tbtext">
+		<b>Admin Email:</b></td>
+  		<td class="tbtext" colspan="2" align="left">
+		  <input type="text" name="fEmail" class="inputbox" value="{{fEmail}}" size="30" /> <span style="color: red">*</span>
+        </td>
+        <td>	
+        <a href="" class="tooltip" title="Admin Email: This is used to send emails to you and your members."> 
+		<img src="../images/toolTip.png" alt="help"/>
+		
+        </td>
+</tr>
+
+<tr>
+	<td colspan="3" align="left"><br /><input type="submit" name="submit" value="Update Admin Settings" class="inputbox" style="width: 200px;margin-left: 80px;"></td>
+</tr>
+</table>
+</div>
+</form>
+
+<br /><br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->

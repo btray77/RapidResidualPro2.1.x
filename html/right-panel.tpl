@@ -1,0 +1,1 @@
+<div id="blogposts">{$blogposts}</div>

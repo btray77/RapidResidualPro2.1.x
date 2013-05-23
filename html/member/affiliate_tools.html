@@ -1,0 +1,71 @@
+<style type="text/css">
+	.warning {
+    background-color: #FFF6CF;
+    border: 1px solid #FFB900;
+    color: #DF7800;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 2px;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 90%;
+	}
+</style>
+<div id="forms">
+<table border=0 align=center cellpadding=3 cellspacing=5>
+{if count($banners) gt 0}
+<tr align=left>
+	<th class=tbtext><b>Banners:</b></th>
+</tr>
+		{foreach item=banner from=$banners}  
+<tr>
+	<td align="center">{$banner.bimage}</td>
+  </tr>
+<tr align=left>
+	<td align="center"><textarea name=bcode cols=60 rows=8  class=typeforms readonly>{$banner.bcode}</textarea></td>
+  </tr>
+<tr><td class=tbtext>&nbsp;</td></tr>
+		{/foreach}
+{else}
+<tr align=left>
+	<td>No Banner Content Found.</td>
+</tr>
+	
+{/if}
+{if count($links) gt 0 && count($messages) gt 0}
+<tr align=left>
+	<th class=tbtext><b>Emails:</b></th>
+</tr>	
+<tr align=left>
+  <td align="center" class=tbtext></td>
+</tr>
+<tr align=left>
+  <td class=tbtext>
+  {foreach item=link key=mykey from=$links}
+  	{if strlen($link) gt 0}
+  	{$mykey}<br>
+  	<div class="warning">{$link|htmlentities|nl2br}</div>
+  	{/if}
+  {/foreach}
+  </td>
+</tr>
+{if count($messages) gt 0}
+	{foreach item=mes from=$messages}  
+<tr align=left>
+  <td align="center" class=tbtext>{$subject}</td>
+</tr>
+<tr align=left>
+  <td align="center" class=tbtext><textarea name=message cols=60  rows=8 class=typeforms id="message">{$mes.message}</textarea></td>
+</tr>
+{/foreach}
+
+{/if}
+{else}
+<tr align=left>
+	<td>No Email Content Found.</td>
+</tr>
+{/if}
+
+</table>
+</div>

@@ -1,0 +1,81 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong> Edit Time-Released Module</strong></p>
+<div class="buttons"><a	href="tcampaigns.php" >Go Back</a></div>
+<div class="formborder"><br />
+
+<form action="edit_campaign.php" method="post">
+<input type="hidden" name="id" value="{{id}}">
+<table width="90%" border="0" align="center" cellpadding="3" cellspacing="0">
+
+<tr>
+   	  <td colspan="3" class="tbtext">
+	    <div align="left"><b>Time-Released Module  Details:</b></div></td>
+</tr>
+
+
+<tr>
+  <td align="left" class="tbtext"><b> Module Name: </b></td>
+  <td align="left" class="tbtext"><input name="longname" type="text" class="inputbox" id="longname" value="{{longname}}">
+  <div class="tool">	
+		<a href="" class="tooltip" title="Module Name is the name you want to give your module. This is used to show a list of all current modules on the module list page.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+  </td>
+</tr>
+<tr>
+	<td width="339" align="left" class="tbtext">
+		<b> Module Short Name: </b>	</td>
+	<td width="609" align="left" class="tbtext">{{shortname}}
+	<div class="tool">	
+		<a href="" class="tooltip" title="Module Short Name is the short name for your module. This is used by the script to associate a particular module to a product or member.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+	
+	</td>
+</tr>
+<tr>
+	<td class="tbtext" align="left">
+		<b>Module Description <b></b>:</b>	</td>
+	<td align="left" class="tbtext">
+		<textarea rows="3" cols="40" id="description" name="description">{{description}}</textarea>
+		
+		<div class="tool">	
+		<a href="" class="tooltip" title="Module Description is a short description which will show on the module list page.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		</td>
+</tr>
+<tr>
+	<td colspan="2" align=left>
+	  <input type="submit" name="submit" value="Update Module" class="inputbox"></td>
+</tr>
+
+
+
+</table>
+</form>
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+		});
+</script>

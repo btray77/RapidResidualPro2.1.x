@@ -1,0 +1,62 @@
+<html>
+<head>
+<link href="../common/newLayout/css.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+body,table,table tr td,input {
+	font-size: 12px;
+}
+</style>
+<title>
+
+Rapid Residual Pro - Coupon Page Link
+</title>
+
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+.style2 {color: #000000}
+-->
+</style>
+</head>
+<body leftmargin=0 topmargin=0 marginheight="0" marginwidth="0"  >
+<br>
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>Use the examples below to format your coupon code links </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width="95%" border="0" align="center" cellpadding="10" cellspacing="0" bgcolor="#FFFFFF" style="border: 1px solid #CCC;">
+  <tr>
+    <td  align="right" valign="top">
+    <table width="100%"  border="0" cellspacing="0" cellpadding="5">
+      <tr valign="top">
+        <td width="19%"  align="left" valign="middle" nowrap="nowrap" class="black">Direct root sales page:</td>
+        <td width="81%" align="left" >{{http_path}}/{{fileName}}/{{coupon}}</td>
+      </tr>
+      <tr valign="top">
+        <td align="left" valign="middle" class="black">Direct individual product  sales page: </td>
+        <td align="left">{{http_path}}/{{fileName}}/{{product_name}}/{{coupon}}</td>
+      </tr>
+      <tr valign="top">
+        <td align="left" valign="middle" class="black">Root sales page with affiliate link: </td>
+        <td align="left">{{http_path}}/{{fileName}}/<span class="style1">affiliate_username</span>/{{coupon}}</td>
+      </tr>
+      <tr valign="top">
+        <td align="left" valign="middle" class="black">Individual product sales page with affiliate link: </td>
+        <td align="left">{{http_path}}/{{fileName}}/<span class="style1">affiliate_username</span>/{{product_name}}/{{coupon}}</td>
+      </tr>
+      <tr valign="top">
+        <td colspan="2" align="left" valign="middle" class="black"><hr size="1" />
+          <!--<span class="style1">*** product_name<span class="style2"> and </span>affiliate_username <span class="style2">will need to be replaced by individual product and/or affiliate user names to work properly.</span></span>-->
+           <span class="style1">*** affiliate_username <span class="style2">will need to be replaced by affiliate user names to work properly.</span></span>
+          </td>
+        </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+Array
+(
+    [cprodtitle] => Real Estate Investing 360
+    [ctranspaymentmethod] => TEST
+    [cfuturepayments] => 5
+    [ccustzip] => 46000
+    [ccustshippingzip] => 46000
+    [ccustemail] => kashif@gmail.com
+    [crebillstatus] => ACTIVE
+    [ctransaffiliate] => 
+    [cupsellreceipt] => 
+    [corderamount] => 2700
+    [ccustcounty] => 
+    [ccurrency] => USD
+    [ccustfirstname] => KASHIF
+    [crebillamnt] => 2700
+    [ctransaction] => TEST_SALE
+    [ccuststate] => 
+    [caccountamount] => 2398
+    [ctranspublisher] => steveodett
+    [ctid] => 
+    [ccustshippingcountry] => PK
+    [cnextpaymentdate] => 2013-03-15
+    [cverify] => 9BDF14EF
+    [cprocessedpayments] => 1
+    [cprodtype] => RECURRING
+    [ccustcc] => PK
+    [ccustshippingstate] => 
+    [ctransreceipt] => YWYYWNEH
+    [ccustfullname] => Kashif Raza
+    [cvendthru] => randomstring=ebf1fed4e57331930eb1f689b4feca15&pid=2&
+    [ctransrole] => VENDOR
+    [ccustaddr2] => 
+    [ccustaddr1] => 
+    [ccustcity] => 
+    [ccustlastname] => RAZA
+    [ctranstime] => 1360928714
+    [cproditem] => 2
+)
+
+product_id = 
+Array
+(
+    [randomstring] => ebf1fed4e57331930eb1f689b4feca15
+    [pid] => 2
+    [] => 
+)
+
+Database Loading...
+Loading Click Bank Object...
+IPN Successfully Executed...

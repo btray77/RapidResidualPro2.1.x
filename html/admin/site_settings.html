@@ -1,0 +1,351 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Site Settings</strong></p>
+
+<div class="formborder"> <br /> <br />
+
+<form action="site_settings.php" method="post">
+<div style="margin-left: 85px;">
+<table width="95%" border="0" align="center">
+  	<tr>
+    	<td colspan="2" align="left" class="tbtext"><b>Main Site Details</b></td>
+  	</tr>
+  	<tr>
+  	  <td colspan="2" align="left" class="tbtext">&nbsp;</td>
+    </tr>
+    <tr>
+	 	<td width="241" align="left" class="tbtext"><b>Site Name:</b></td>
+	 	<td width="902" align="left">
+ 	  <input name="sitename" type="text" class="inputbox" id="sitename" value='{{sitename}}' size="60"></td>
+ 	  
+ 	  <td>	<div class="tool">	
+		<a href="" class="tooltip" title="Site Name: The name people see in the web page name area of their browser.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div></td>  
+	</tr>
+	<tr>
+  		<td align="left" valign="top" class="tbtext"><b>Keywords:</b></td>
+    	<td align="left">
+       	<textarea name="keywords" rows="5" cols="60" class="inputbox">{{keywords}}</textarea>
+       	</td>
+       	<td>
+       	<div class="tool">	
+		<a href="" class="tooltip" title="Keywords: The keywords which will be embedded in your header html. Use these for SEO purposes.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+			
+       	
+        </td> 
+    </tr>
+	<tr>
+    	<td align="left" valign="top" class="tbtext"><b>Site Description:</b></td>
+    	<td align="left">
+    	<textarea name="description" rows="5" cols="60" class="inputbox">{{description}}</textarea>    </td>
+    	<td>
+    	<div class="tool">	
+		<a href="" class="tooltip" title="Site Description: This will be embedded in your header html. Use for SEO purposes.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+    		</td> 
+    </tr>
+	<tr>
+		<td align="left" valign="top" class="tbtext"><b>Extra Meta Data:</b></td>
+    	<td align="left">
+    	<textarea name="meta" cols="60" rows="5" class="inputbox" id="meta">{{meta}}</textarea>    </td>
+    	<td>
+    	<div class="tool">	
+		<a href="" class="tooltip" title="Extra Meta Data is where you can add anything that needs to be added to the members area page header area. 
+		This can be used to add in javascript code that needs to go inside a pages head section.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+    		
+       	
+        </td> 
+    </tr>
+	<tr>
+		<td align="left" valign="top" class="tbtext"><b>Analytics/Tracking Code:</b></td>
+    	<td align="left">
+    	<textarea name="tracking" cols="60" rows="5" class="inputbox" id="tracking">{{tracking}}</textarea>    </td>
+    	<td>
+    	<div class="tool">	
+		<a href="" class="tooltip" title="Analytics/Tracking Code: Place any analytics code here!">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+    		
+       	
+        </td> 
+    </tr>	  	
+  	<tr>
+		<td width="241" align="left" class="tbtext"><b>Use WYSIWYG Editor:</b></td>
+		<td align="left"><select name="useeditor" class="inputbox" id="useeditor">
+    	<option value="0" {{option10a}}>No</option>
+    	<option value="1" {{option11a}}>Yes</option>		 
+    	</select>	</td>
+    	<td>
+    	<div class="tool">	
+		<a href="" class="tooltip" title="Use WYSIWYG Editor will toggle between a full rich text editor and
+		 a standard text area box for all html input boxes within the admin area.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+    	
+    		
+       	
+        </td> 
+	</tr>
+	<tr>
+  <td colspan="2" align="left" class="tbtext"><hr size="1" /></td>
+</tr>
+	<tr>
+    	<td colspan="2" align="left" class="tbtext">
+		<b>PayPal Details </b></td>
+  	</tr>
+	<tr>
+	  <td colspan="2" align="left" class="tbtext">&nbsp;</td>
+    </tr>
+	<tr>
+  		<td align="left" class="tbtext">
+		 <b>Live PayPal Email:</b></td>
+  		<td class="tbtext" align="left">
+		  <input name="paypal_email" type="text" class="inputbox" id="paypal_email" value="{{paypal_email}}" size="60" />      </td>
+		  <td>
+		  
+		  <div class="tool">	
+		<a href="" class="tooltip" title="Live PayPal Email: is used to accept payments.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		  	
+       	
+        </td>
+	</tr>
+	<tr>
+  		<td align="left" class="tbtext">
+		 <b>Sandbox PayPal Email:</b></td>
+  		<td class="tbtext" align="left">
+		  <input name="sandbox_paypal_email" type="text" class="inputbox" id="sandbox_paypal_email" value="{{sandbox_paypal_email}}" size="60" />      </td>
+		  <td>
+		  <div class="tool">	
+		<a href="" class="tooltip" title="Sandbox PayPal Email: is used to test the system settings without 
+		going through the live PayPal payment system.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		  	
+       
+        </td>
+	</tr>
+  <tr>
+    <td colspan="3" align="left" class="tbtext"><em><font color="#FF0000">(Sandbox PayPal Email only needed if you use the Sandbox for testing.)</font></em></td>
+    </tr>
+  	<tr>
+	<td class="tbtext" align="left" width="241">
+	<b>PayPal Live/Test Mode:</b></td>
+	  <td align="left" valign="top" class="tbtext">
+		
+		  <select name="paypal_sandbox" class="inputbox" id="paypal_sandbox">
+            <option value="0" {{false1}}>Live PayPal</option>
+            <option value="1" {{true1}}>Test Mode</option>
+          </select>		</td>
+          <td>
+          <div class="tool">	
+		<a href="" class="tooltip" title="PayPal Live/Test Mode: Toggle between live and test mode of paypal.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+          	
+       
+        </td>
+</tr>
+  <tr>
+    <td colspan="2" align="left"><font class="tbtext"><em><font color="#FF0000">(If set to Test Mode your payment buttons will link to the PayPal Sandbox for testing. You have to have accounts set up through</font> <a href="https://developer.paypal.com/" target="_blank">PayPal Sandbox</a> <font color="#FF0000">to use this feature.)</font></em></font></td>
+    </tr>
+  <tr>
+  <td colspan="2" align="left" class="tbtext"><hr size="1" /></td>
+</tr>
+    <tr>
+    	<td colspan="2" align="left" class="tbtext">
+		<b>Site Partner Settings </b></td>
+  	</tr>
+  <tr>
+    <td colspan="2" align="left">&nbsp;</td>
+  </tr>
+  <tr>
+	<td width="241" align="left" class="tbtext">
+	<b>Enable Site Partner:</b>	</td>
+	<td class="tbtext" align="left"><input class="inputbox" name="sitepartner" type="radio" value="yes" {{partner1}} /> 
+	Yes
+      <input class="inputbox" name="sitepartner" type="radio" value="no" {{partner2}} /> 
+      No</td>
+</tr>
+  <tr>
+  		<td align="left" class="tbtext">
+		 <b>Site Partner PayPal Email:</b></td>
+  		<td class="tbtext" align="left">
+		  <input name="partner_paypal_email" type="text" class="inputbox" id="partner_paypal_email" value="{{partner_paypal_email}}" size="60" />      </td>
+	</tr>
+  <tr>
+  		<td align="left" class="tbtext">
+		 <b>Site Partner Commission %:</b></td>
+	  <td class="tbtext" align="left">
+      <input name="partner_commission" type="text" class="inputbox" id="partner_commission" value="{{partner_commission}}" size="60" />      </td>
+	</tr>
+  <tr>
+    <td align="left" class="tbtext">&nbsp;</td>
+    <td class="tbtext" colspan="2" align="left">&nbsp;</td>
+  </tr>
+  <tr>
+	<td width="241" align="left" class="tbtext">
+	<b>Enable Second Partner:</b></td>
+	<td class="tbtext" align="left"><input class="inputbox" name="second_sitepartner" type="radio" value="yes" {{second_partner1}} /> 
+	Yes
+      <input class="inputbox" name="second_sitepartner" type="radio" value="no" {{second_partner2}} /> 
+      No	</td>
+</tr>
+  <tr>
+  		<td align="left" class="tbtext">
+		 <b>Second Partner PayPal Email:</b></td>
+  		<td class="tbtext" align="left">
+		  <input name="second_partner_paypal_email" type="text" class="inputbox" id="second_partner_paypal_email" value="{{second_partner_paypal_email}}" size="60" />      </td>
+	</tr>
+  <tr>
+  		<td align="left" class="tbtext">
+		 <b>Second Partner Commission %:</b></td>
+	    <td class="tbtext" align="left">
+      <input name="second_partner_commission" type="text" class="inputbox" id="second_partner_commission" value="{{second_partner_commission}}" size="60" />      </td>
+	</tr>
+  <tr>
+    <td class="tbtext" colspan="2" align="left"><p><font color="#FF0000"><em>(The combined percentage of both the site partners must not add up to more than 100%. If the combined total equals 100% then you will not get any of the sales.)</em></font></p></td>
+    </tr>
+  
+  
+<tr>
+  <td colspan="2" align="left" class="tbtext"><hr size="1" /></td>
+</tr>
+<tr>
+    	<td colspan="2" align="left" class="tbtext">
+		<b>Download And Video Protection Details </b></td>
+  	</tr>
+<tr>
+  <td colspan="2" align="left" class="tbtext">&nbsp;</td>
+</tr>
+	<tr>
+  		<td align="left" class="tbtext">
+		  <b>Protected Download Folder:</b></td>
+  		<td class="tbtext" align="left">
+		 <input name="prot_down" type="text" class="inputbox" id="prot_down" value="{{prot_down}}" size="60" />        </td>
+		 <td>
+		<div class="tool">	
+		<a href="" class="tooltip" title="Protected Download Folder: The name of your downloads folder. The script uses this to create protected download links. This folder is not created for you, you have to create the folder and upload the files yourself. 
+		The name of your folder will be hidden by the go file redirect.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div> 
+		 	
+       	
+        </td>
+	</tr>
+	<tr>
+	    <td align="left" class="tbtext">&nbsp;</td>
+      <td class="tbtext" align="left"><input class="inputbox" name="prod" type="radio" value="onsite" {{onstatus1}} />
+On Site Folder
+  <input class="inputbox" name="prod" type="radio" value="offsite" {{offstatus1}} />
+        Off Site Full Url </td>
+	</tr>
+<tr>
+    <td class="tbtext" colspan="2" align="left"><p><font color="#FF0000"><em>(The Protected Download Folder is where you can put all your downloadable files and have the location of them hidden from users. If using an on site folder put ONLY the folder name and if using off site put the full http path to the folder including the ending slash. For an on site folder, the folder needs to be in the root folder where you installed Rapid Residual Pro.)</em></font></p></td>
+    </tr>
+	  <tr>
+  		<td align="left" class="tbtext">
+		  <b>Protected Video/Audio Folder:</b></td>
+  		<td class="tbtext" align="left">
+	  <input name="swf_down" type="text" class="inputbox" id="swf_down" value="{{swf_down}}" size="60" />        </td>
+	  <td>	
+       	
+	<div class="tool">	
+		<a href="" class="tooltip" title="Protected Video/Audio Folder: The name of your video files folder. The script uses this to create protected video file links. This folder is not created for you, you have to create the folder and upload the files yourself. The name of your folder will be hidden by the go file redirect.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div> 	
+		
+        </td>
+	</tr>
+	  <tr>
+    <td class="tbtext" colspan="2" align="left"><p><em><font color="#FF0000">(The Protected Video/Audio Folder is where you can put all your swf files and have the location of your videos hidden from users. Put the folder name only. Do not add anything else. This folder needs to be in the root folder where you installed Rapid Residual Pro.)</font></em></p></td>
+    </tr>
+	  
+  
+	<tr>
+  <td colspan="2" align="left" class="tbtext"><hr size="1" /></td>
+</tr>
+	<tr>
+    	<td colspan="2" align="left" class="tbtext">
+		<b>Email Details </b></td>
+  	</tr>
+	<tr>
+	  <td colspan="2" align="left" class="tbtext">&nbsp;</td>
+    </tr>
+	<tr>
+		<td align="left" class="tbtext"><b>From Name:</b></td>
+		<td align="left">
+	  	<input name="email_from_name" type="text" class="inputbox" id="email_from_name" value='{{email_from_name}}' size="60">	  	</td>
+	  	<td>
+	   <div class="tool">	
+		<a href="" class="tooltip" title="From Name: The default email from name which is used while sending all outgoing email.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div> 			
+       	
+        </td>
+	</tr>
+		<tr class="tbtext" valign="top">
+		<td align="left" class="tbtext"><b>Email Footer Details:</b></td>
+		<td align="left">
+		<textarea name="mailer_details" rows="5" cols="60" class="inputbox">{{mailer_details}}</textarea>	  </td>
+		<td>
+		 <div class="tool">	
+		<a href="" class="tooltip" title="Email Footer Details : Here you should put contact information to be compliant with the Can-Spam Act. 
+		It will be included at the bottom of all outgoing emails.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div> 		
+       	
+        </td>
+	</tr>
+	<tr>
+	  <td colspan="2">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td colspan="2">&nbsp;</td>
+    </tr>
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Update Site Settings" class="inputbox" style="width: 450px; margin-left: 100px;">		</td>
+	</tr>	
+	<tr>
+		<td class="tbtext" colspan="2" align="left">&nbsp;		</td>
+	</tr>	
+</table>
+</div>
+</form>
+
+
+<br /><br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->

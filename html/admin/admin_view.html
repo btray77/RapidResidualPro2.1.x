@@ -1,0 +1,67 @@
+<br>
+<table width="95%" border="0" align="center">
+<tr>
+	<td align="center" class="tbheaders">
+	{{Title}}
+	</td>
+</tr>
+<tr>
+	<td align="center" class="tbtext"><font color="red">
+	{{Message}}</font>
+	</td>
+</tr>
+</table>
+<br>
+
+<table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+	<td align=right colspan=4 class="tbtext"><a href='admin_add.php'>Add Admin </a></td>
+</tr>
+<tr>
+	<td colspan=4 align="right" class="tbtext">
+		Page __single__ __first__ __previous__  <{page_loopstart}> <{page1}>&nbsp;<{page_loopend}>__next__ __last__</td>
+</tr>
+<tr>
+  <td colspan=4 align="right" class="tbtext">&nbsp;</td>
+</tr>
+</table>
+
+
+<table class="notsortable" width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+	<td width="32%" align="left">ADMIN LOGIN NAME</td>
+	<td width="55%" align="left">EMAIL ADDRESS </td>
+	<td align="center">EDIT</td>
+    <td align="center">DELETE</td>
+</tr>
+</thead>
+<{Begin}>
+<tr align="left">
+	<td class="tbtext">{{username}}</td>
+	<td class="tbtext">{{webmaster_email}}</td>
+	<td width="7%" align="center" class="tbtext"><a href="admin_edit.php?id={{id}}"><img src="../images/admin/edit.gif" width="16" height="16" border="0" /></a></td>
+	<td width="6%" align="center" class="tbtext"><a href="admin_view.php?act=d&amp;id={{id}}" Onclick="return confirm('Are you sure you want to delete this Admin?')"><img src="../images/admin/delete.gif" width="16" height="16" border="0" /></a></td>
+</tr>
+
+<{End}>
+</table>
+
+
+
+<table width="95%" border="0" align="center" cellpadding="2" cellspacing="0">
+<tr>
+  <td colspan=4 align="right" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+	<td colspan=4 align="right" class="tbtext">
+		Page __single__ __first__ __previous__  <{page_loopstart}> <{page1}>&nbsp;<{page_loopend}>__next__ __last__</td>
+</tr>
+<tr>
+  <td colspan=4 align="left" class="tbtext"><ul>
+    <li><font class=tbtext><b>Edit</b> is used to modify the admin profile.</font></li>
+<li><font class=tbtext><b>Delete</b> is used to remove the admin.</font></li>
+</ul></td>
+</tr>
+</table>
+<br>

@@ -1,0 +1,82 @@
+
+<!-- ###################### Error Message Start ###################### -->
+<?php echo $Message; ?>
+<!-- ###################### Error Message End ###################### -->
+
+<!-- ###################### Content Area Start ###################### -->
+
+
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+
+
+
+<p><strong>Add New Comment</strong></p>
+<div class="buttons">
+<?php
+	if(isset($filename) && $type == 'trcontent'){
+?>
+		<a href="comment_moderation.php?pageid=<?php echo $pageid;?>&filename=<?php echo $filename;?>&type=<?php echo $type;?>">Back to Comments</a>
+<?php
+	}else{
+?>		
+		<a href="comment_moderation.php?pageid=<?php echo $pageid;?>&type=<?php echo $type;?>">Back to Comments</a>
+<?php
+	}
+?>		
+</div>
+
+<div class="formborder">
+
+
+<!-- ###################### Content Area Close ###################### -->
+<?php 
+if(count($comments)> 0){
+	foreach($comments as $com)
+	{
+		$name = $com['display_name'];
+		$comments = $com['comment'];
+		$display_url = $com['display_url'];
+	}
+}
+?>			
+			
+<form action="comment_moderation_add.php?pageid=<?php echo $pageid;?>&type=<?php echo $type;?>" method="post" name="form" id="form">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td align="right">Name</td>
+    <td><input type="text" name="name" value="<?php echo stripslashes($name);?>" <?php if($cid > 0) echo 'readonly="readonly"';?>   /></td>
+  </tr>
+  <tr>
+    <td align="right">Comments*</td>
+    <td><textarea name="comments" cols="40" rows="4"><?php echo stripslashes($comments);?></textarea></td>
+  </tr>
+  <tr>
+    <td align="right">URL</td>
+    <td>
+    <input type="text" name="display_url" value="<?php echo $display_url;?>" />
+   
+	</td>
+  </tr>
+  
+  <tr>
+    <td><label></label></td>
+    <td><input type="submit" name="submit" value="Submit" />
+    	<input type="hidden" name="pageid" value="<?php echo $pageid?>" />
+    	<input type="hidden" name="filename" value="<?php echo $filename?>" />
+    	<input type="hidden" name="type" value="<?php echo $type?>" />
+    	<input type="hidden" name="cid" value="<?php echo $cid?>" />
+    </td>
+  </tr>
+</table>
+
+</form>
+</div>
+
+
+
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+

@@ -1,0 +1,142 @@
+<style>
+BODY, TD
+	{
+	font-family : Tahoma, Verdana, Helvetica, Geneva, Arial, sans-serif;
+	font-size : 12pt;
+	letter-spacing : 1pt;
+	line-height : 13pt;
+	}
+	
+A:link
+	{
+font-family:Verdana; font-size:10pt;color:blue;text-decoration:none;
+	}
+
+A:visited
+	{
+font-family:Verdana; font-size:10pt;color:blue;text-decoration:none;
+	}
+A.img:hover
+	{
+font-family:Verdana; font-size:10pt;color:blue;text-decoration:underline;
+	}
+A:hover
+	{
+font-family:Verdana; font-size:10pt;color:blue;text-decoration:underline;
+	}
+.logotext
+	{
+    FONT-SIZE: 12px;
+    COLOR: #000000;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	}
+.tbtext
+	{
+	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: normal;
+	color: #000000;
+	}	
+.tbtextwhite
+	{ 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11pt; 
+	font-style: normal; 
+	font-weight: normal; 
+	color: #FFFFFF; 
+	background-color:#666699;
+	}	
+.titles
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8.5pt;
+	text-transform: uppercase;
+	color: #000000;
+	font-weight: bold;
+	}
+.inputbox
+	{
+	BORDER-RIGHT: #b5c7d9 1px solid;
+	BORDER-TOP: #b5c7d9 1px solid;
+	MARGIN-TOP: 0px;
+	DISPLAY: inline;
+	MARGIN-BOTTOM: 0px;
+	BORDER-LEFT: #b5c7d9 1px solid;
+	BORDER-BOTTOM: #b5c7d9 1px solid;
+	BACKGROUND-COLOR: #e1eafb;
+	}
+
+textarea
+	{
+	BORDER-BOTTOM: rgb(100,100,100) 1px solid;
+	BORDER-LEFT: rgb(100,100,100) 1px solid;
+	BORDER-RIGHT: rgb(100,100,100) 1px solid;
+	BORDER-TOP: rgb(100,100,100) 1px solid;
+	FONT: 12px Tahoma,Verdana,Arial;
+	background-color : white;
+	background : white;
+	}
+	
+.error
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-style: normal;
+	font-weight: normal;
+	color: red;
+	}
+
+.border
+	{
+	border: 1px solid #000000;
+	}
+	
+.copyright
+	{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9px;
+    COLOR: #000000;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	}
+	
+TD
+	{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 13px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	}
+
+.error
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt; font-style: normal;
+	font-weight: normal;
+	color: red;
+	}
+
+h1 {
+	font-family :Verdana, Arial, Helvetica, sans-serif;
+	font-weight : bold;
+	font-size : 26px;
+	padding : 1 0 0 0;
+	margin-bottom : 0;
+	margin-top : 1;
+	margin-left : 0;
+	margin-right : 0;
+	}
+
+td.admin_index_news_border
+	{
+	border: 1px #000000 solid;
+	padding: 8px 8px 8px 8px;
+	margin: 0px 0px 0px 0px;
+	color: #000000;
+	font-size: 13px;
+	font-family: verdana, arial, sans-serif;
+	}	
+
+</style>

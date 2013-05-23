@@ -1,0 +1,102 @@
+<script src="../common/newLayout/jquery/jquery.js"> </script>
+<script type="text/javascript">
+
+/ create custom animation algorithm for jQuery called "bouncy"
+$.easing.bouncy = function (x, t, b, c, d) {
+    var s = 1.70158;
+    if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+    return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+}
+
+// create custom tooltip effect for jQuery Tooltip
+$.tools.tooltip.addEffect("bouncy",
+
+	// opening animation
+	function(done) {
+		this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
+	},
+
+	// closing animation
+	function(done) {
+		this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
+			$(this).hide();
+			done.call();
+		});
+	}
+);
+</script>
+
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Change Password</strong></p>
+<div class="buttons" ><a href="admin_settings.php" >Go Back!</a></div>
+<div class="formborder"> <br /> <br />
+
+<form action="change_login.php" method="post">
+<div style="margin-left: 200px;">
+<table width="95%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr> <td colspan="2"><span style="color: red">All fields with ( * ) are mandatory.</span></td></tr>
+<tr>
+    	<td colspan="2" class="tbtext" align="center">&nbsp;		</td>
+  	</tr>  	
+  	<tr>
+  		<td align="left" class="tbtext" width="25%">
+		<b>Old Password:</b>
+		</td>
+  		<td width="69%" colspan="2" align="left" class="tbtext">
+		  <input name="old_pass" type="password" class="inputbox" id="old_pass" size="30" /> <span style="color: red">*</span>			
+      </td>
+      <td>
+		<div class="tool">	
+      <a href=""  class="tooltip" title="Enter your old and new Password to change your admin password."> 
+		<img src="../images/toolTip.png" alt="help"/>
+    </a>
+    </div>   	
+        </td>
+	</tr>
+  	<tr>
+  		<td align="left" class="tbtext" width="25%">
+		<b>New Password:</b>
+		</td>
+  		<td width="69%" colspan="2" align="left" class="tbtext">
+		  <input name="new_pass1" type="password" class="inputbox" id="new_pass1" size="30" />	<span style="color: red">*</span>		
+      </td>
+	</tr>
+  	<tr>
+  		<td align="left" class="tbtext" width="25%">
+		<b>New Password Again:</b>
+		</td>
+  		<td width="69%" colspan="2" align="left" class="tbtext">
+		  <input name="new_pass2" type="password" class="inputbox" id="new_pass2" size="30" />	<span style="color: red">*</span>		
+      </td>
+	</tr>	
+	<tr>
+	  <td colspan="2">&nbsp;</td>
+    </tr>
+	
+<tr>
+	<td colspan="3" align="left"><br /><input type="submit" name="submit" value="Update Admin Password" class="inputbox" style="width: 200px;margin-left: 80px;"></td>
+</tr>
+</table>
+</div>
+</form>
+
+<script type="text/javascript">
+
+
+
+$("#demo img[title]").tooltip();
+</script>
+<br /><br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->

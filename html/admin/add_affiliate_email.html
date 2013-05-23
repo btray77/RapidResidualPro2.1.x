@@ -1,0 +1,70 @@
+<!-- ###################### Error Message Start ###################### -->
+{{msg}}
+<!-- ###################### Error Message End ###################### -->
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Add Affiliate Email</strong></p>
+<div class="buttons"><a href='affiliate_emails.php'>Go Back</a></div>
+<div class="formborder"><br />
+<br />
+<form action="add_affiliate_email.php" method="post">
+<table width="90%" border="0" align="center">
+	<tr>
+	  <td colspan="2" align="right" class="tbtext">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="tbtext"><strong>Affiliate Email Settings</strong></td>
+    </tr>
+	<tr>
+	  <td colspan="2" class="titles">&nbsp;</td>
+    </tr>
+	<tr>
+	  <td width="31%"  class="tbtext"><strong>Subject:</strong></td>
+      <td><input name="subject" class="inputbox" type="text" id="subject" value="{{subject}}">
+      <div class="tool">	
+		<a href="" class="tooltip" title="Subject  is the subject line for your affiliate email.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>	
+	<tr>
+	  <td class="tbtext"><strong>Associate To Product:</strong></td>
+      <td><select name="product" class="inputbox" id="product">
+			<option value=0>Select</option>
+			{{product}}
+		</select>
+		<div class="tool">	
+		<a href="" class="tooltip" title="Associate To Product is the product you want this affiliate email assigned to.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+		</td>
+	</tr>
+	<tr>
+	  <td width="31%" valign="top"  class="tbtext"><strong>Message:</strong></td>
+      <td><textarea name="message" cols="80" rows="8" class="inputbox" id="message">{{message}}</textarea>
+      <div class="tool">	
+		<a href="" class="tooltip" title="Message  is email message body for this affiliate email.">
+			<img src="../images/toolTip.png" alt="help"/>
+		</a>
+		</div>
+      </td>
+	</tr>
+	<tr>
+	  <td class="tbtext" colspan="2">&nbsp;</td>
+    </tr>
+	<tr>
+		<td colspan="2">
+	  	<input type="submit" name="submit" value="Add Email" class="inputbox">		</td>
+	</tr>	
+	
+</table>
+</form>
+<br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>

@@ -1,0 +1,91 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{error}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<link rel="stylesheet" href="../common/newLayout/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="../common/newLayout/jquery/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script src="../common/newLayout/js_validation/validation.js" type="text/javascript" charset="utf-8"></script>
+<script type='text/javascript' src='../common/newLayout/jquery.autocomplete.js'></script>
+<link rel="stylesheet" type="text/css" href="../common/newLayout/jquery.autocomplete.css" />
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Add New Member</strong></p>
+
+<div class="buttons">
+    <a href="member_view.php">Go back</a>
+    </div>
+
+<div class="formborder">
+
+<br>
+
+<form name="member-act" id="member-act" action="member_add.php" method="post" enctype="multipart/form-data" onsubmit="return doValidate('member-act');">
+<table width="95%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>First Name*: </b></td>
+	<td class="tbtext" align="left" width="72%"><input type="text" name="firstname" id="firstname" class="inputbox"><label class="req" id="lbl_fname"></label></td>
+</tr>
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>Last Name*: </b></td>
+	<td class="tbtext" align="left" width="72%"><input type="text" name="lastname" id="lastname" class="inputbox"><label class="req" id="lbl_lname"></label></td>
+</tr>
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>Email*: </b></td>
+	<td class="tbtext" align="left" width="72%"><input type="text" name="email" id="email" class=inputbox><label class="req" id="lbl_email"></label></td>
+</tr>
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>User Name: </b></td>
+	<td class="tbtext" align="left" width="72%"><input type="text" name="username" class=inputbox></td>
+</tr>
+<tr>
+  <td class="tbtext" align="left"><strong>Referal Username: </strong></td>
+  <td class="tbtext" align="left"><input type="text" name="referal" class="inputbox" id="referal" /></td>
+</tr>
+<tr>
+	<td class="tbtext" align="left" width="27%"><b>Password: </b></td>
+	<td class="tbtext" align="left" width="72%"><input type="text" name="password" class=inputbox></td>
+</tr>
+<tr>
+	  <td class="tbtext" align="left"><b>Status:</b></td>
+	  <td align="left" class="tbtext"><select name="status" class=inputbox>
+			<option value="1" {{false9}}>Affiliate</option>
+			<option value="2" {{true9}}>Member</option>
+			<option value="3" {{truea9}}>JV Partner</option>
+		</select></td>
+    </tr>
+<tr>
+	<td colspan=2>&nbsp;</td>
+</tr>
+<tr>
+	<td colspan="2" align="left"><input type="submit" name="submit" value="Add Member" class="inputbox"></td>
+</tr>
+</table>
+</form>
+
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+	
+		$("#referal").autocomplete("get_users_list.php", {
+			width: 260,
+			matchContains: true,
+			//mustMatch: true,
+			//minChars: 0,
+			//multiple: true,
+			//highlight: false,
+			//multipleSeparator: ",",
+			selectFirst: false
+
+		});
+			
+			
+		});
+</script>

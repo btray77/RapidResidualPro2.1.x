@@ -1,0 +1,96 @@
+<!-- ###################### Error Message Start ###################### -->
+{{error}}
+<!-- ###################### Error Message End ###################### -->
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+    <div class="content-wrap-top"></div>
+    <div class="content-wrap-inner">
+        <p><strong>{{Title}}</strong></p>
+        <div class="buttons"><a	href="squeeze_view.php">Go Back!</a></div>
+        <div class="formborder"><br />
+            <br>
+            <form name="member-act" action="squeeze_edit.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="pid" value="{{id}}">
+                <table width="95%" border="0" align="center" cellpadding="3" cellspacing="0">
+                    <tr>
+                        <td class="tbtext" align="left" width="17%"><b>Page title: </b></td>
+                        <td class="tbtext" align="left" width="72%"><input type="text" size="40" name="page_title" value="{{page_title}}"></td>
+                     </tr>
+                    <tr>
+                       <td class="tbtext" align="left" width="17%"><b>Short Name: </b></td>
+                       <td class="tbtext" align="left" width="72%"><input type="text" size="40" name="page_name" value="{{name}}"></td>
+                    </tr>
+                    <tr>
+                        <td><b>Seo Title:</b></td>
+                        <td align="left"><input type="text" name="seo_title" size="40" value="{{seo_title}}"></td>
+                    </tr>
+                    <tr>
+                        <td width="232" align="left" class="tbtext">
+                            <b>Access:</b>	</td>
+                        <td class="tbtext" colspan="2" align="left">
+                           <input class="inputbox" name="access" type="radio" value="Public" {{access1}} />Public
+                           <input class="inputbox" name="access" type="radio" value="Private" {{access2}} />Private</td>
+                    </tr>
+                    <tr>
+                        <td width="232" align="left" class="tbtext">
+                            <b>Allow Comments:</b>	</td>
+                        <td class="tbtext" colspan="2" align="left"><input class="inputbox" name="comments" type="radio" value="yes" {{comments1}} /> 
+                                                                           Yes
+                                                                           <input class="inputbox" name="comments" type="radio" value="no" {{comments2}} /> 
+                                                                           No</td>
+                       </tr>
+                    <tr>
+                        <td class="tbtext" align="left" width="27%"><b>Squeeze Page: </b></td>
+                        <td class="tbtext" align="left" width="72%">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="left" class="tbtext">  
+                            <div><textarea name="squeezepage" cols="100" rows="8" class="inputbox" id="squeezepage">{{squeezepage}}</textarea>
+                                <script type="text/javascript" charset="utf-8">
+                                   var oEdit1 = new InnovaEditor("oEdit1");
+                                   oEdit1.width = 700;
+                                   oEdit1.height = 450;
+                                    oEdit1.groups = [
+                                        ["grpEdit1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog", "Styles", "RemoveFormat"]],
+                                        ["grpEdit2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+                                        ["grpEdit3", "", ["TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "ImageDialog", "YoutubeDialog"]],
+                                        ["grpEdit4", "", ["CharsDialog", "Line", "BRK","CustomTag","HTML5Video"]], ["grpEdit5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen"]]
+                                    ];
+                                    if (oEdit1.fileBrowser != "") {
+                                        oEdit1.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,650,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+                                    } else { /* If file browser not used, reduce the HTML5 Video dialog height */
+                                        oEdit1.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,330,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+                                    }
+									
+									
+                                    /*Enable Custom File Browser */
+                                    oEdit1.fileBrowser = "/admin/Editor/assetmanager/asset.php";
+                                    /*Define "CustomTag" dropdown */
+                                    oEdit1.arrCustomTag=    [["Referred By","{\{referred_by\}}"]];//Define custom tag selection
+                                    /*Apply stylesheet for the editing content*/
+                                    oEdit1.css = "/admin/Editor/scripts/bootstrap/css/bootstrap.min.css";
+                                    /*Render the editor*/
+                                    oEdit1.REPLACE("squeezepage"); 
+                                </script>
+
+                            </div>  </td>
+                    </tr>
+                    <tr>
+                        <td>Keyword:</td>
+                        <td align="left"><input type="text" name="keyword" size="40" value="{{keyword}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Meta Discription:</td>
+                        <td align="left"><textarea rows="5" cols="60" name="meta_discription">{{meta_discription}}</textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="left"><input type="submit" name="submit" value="Update Squeeze Page" class="inputbox"></td>
+                    </tr>
+                </table>
+            </form>
+           <br />
+           <br />
+        </div>
+    </div>
+    <div class="content-wrap-bottom"></div>
+</div>

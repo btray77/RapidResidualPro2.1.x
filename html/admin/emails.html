@@ -1,0 +1,43 @@
+
+<!-- ###################### Error Message Start ###################### -->
+{{message}}
+
+<!-- ###################### Error Message End ###################### -->
+
+
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner"><p><strong>Outgoing Email Management</strong></p>
+
+<div > <br /> <br />
+
+<table class="notsortable" align="center" width="98%" border="0" cellpadding="4" cellspacing="0" style="border: 2px solid black;">
+<thead>
+<tr>
+	<td colspan="4" align="center" class="tbtext" style="background-color: black; color: white;">
+		These are your system emails, Rapid Residual Pro automatically sends these for you.<br> To view or Edit these, simply select the edit icon. 
+	</td>
+</tr>
+<tr  class="alternateRow"><td colspan="3" align="center"> Email Description</td> <td >View / Edit</td></tr>
+</thead>
+<{email_start}>
+	<tr class = '<{className}>'  onmouseover="this.style.backgroundColor='#f1ca47'" onmouseout="this.style.backgroundColor=''">
+		<td colspan="3" width="90%" class="tbtext">
+			<div align="left"><strong><{mailname}></strong> 
+	        </div></td>
+		<td align="center"> &nbsp;&nbsp;
+			
+			<a href="edit_email.php?mid=<{mid}>"><img src="../images/editIcon.png" alt="editImage" title="Click To Edit this email"></a>
+		</td>
+	</tr>	
+<{email_end}>
+</table>
+
+
+<br /><br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->
