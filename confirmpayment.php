@@ -1,9 +1,4 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 include_once("common/config.php");
 include ("include.php");
 
@@ -23,13 +18,15 @@ $q = "select id as member_id from ".$prefix."members where randomstring='$random
 $c = $db->get_a_line($q);
 @extract($c);
 
-$product_sql = "select item_name,payer_email,payment_type,item_number from ".$prefix."orders where randomstring='$randomstring'";
+$product_sql = "select item_name,payer_email,payment_type,payment_status,item_number from ".$prefix."orders where randomstring='$randomstring'";
 $row_product = $db->get_a_line($product_sql);
+@extract($row_product);
 $product_id=$row_product['item_number'];
 $product_name=$row_product['item_name'];
 $payer_email=$row_product['payer_email'];
 $payment_type=$row_product['payment_type'];
-		
+$payment_status=$row_product['payment_status'];
+
 $q="select count(*) as cnt from ".$prefix."member_products where member_id='$member_id' && product_id='$product_id'";
 $r=$db->get_a_line($q); 
 $count=$r[cnt];
@@ -113,6 +110,7 @@ else if($count==1)
 	
 		echo $payment_type;	
 	}
+	
 	else if($payment_status == 'Completed')
 	{
 		echo 'completed';
