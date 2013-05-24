@@ -32,14 +32,14 @@ switch($_REQUEST['action'])
 		break;
 			
 }
-function save_records($db,$prefix,$_POST)
+function save_records($db,$prefix,$POST)
 {
 
-	foreach($_POST as $key => $items){
+	foreach($POST as $key => $items){
 		$$key= addslashes($items);
 		
 	}
-	//print_r($_POST);
+	
 	if(empty($published)) $published=0;
 	if(empty($type)) $type=$content_type;
 	
