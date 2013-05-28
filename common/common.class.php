@@ -352,7 +352,7 @@ class common {
             $email_from_name = $webmaster_email;
         if ($mailer == 'smtp') {
             $mail->Mailer = $mailer; // enable SMTP
-            $mail->IsHTML();
+            $mail->IsHTML(false);
             $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
             $mail->SMTPAuth = true;  // authentication enabled
             $mail->SMTPSecure = $smtpsecure; // secure transfer enabled REQUIRED for Gmail
@@ -363,7 +363,7 @@ class common {
             $mail->SetFrom($email_from_name, $from_name);
             //$mail->AddReplyTo($webmaster_email, $sender_name);
             $mail->Subject = $subject;
-            $body = $body . "<p>$mailer_details</p>";
+            //$body = $body . "<p>$mailer_details</p>";
             $mail->Body = $body;
             $mail->AddAddress($email);
             if (!$mail->Send()) {
@@ -845,7 +845,7 @@ class common {
                     $file=$this->http_path."/$media_path/".$results['content_id'];
                     else
                     $file = "" . $this->http_path . "/videos/" . $results['hidden_id'];
-                    $download = "" . $this->http_path . "/download/" . $results[hidden_id];
+                    $download = "" . $this->http_path . "/download/" . $results['hidden_id'];
                     $download_link = ($results['download_link'] == 'Yes') ? '<a href="' . $download . '">'. $button .'</a>' : '';
                 } else {
                     if (preg_match("/iP(od|hone|ad)/i", $_SERVER["HTTP_USER_AGENT"]))

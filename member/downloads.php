@@ -76,10 +76,11 @@ if(count($products) > 0)
 	foreach($products as $product){
 	$sql = "select * from ".$prefix."products where id='$product[product_id]'" ;
 	$row_product = $db->get_a_line($sql);
+	 
         $sql = "select * from ".$prefix."orders where id='$product[product_id]'" ;
-	$row_product = $db->get_a_line($sql);
-        $id = str_replace('=', '', base64_encode (base64_encode ($product['txn_id'])));
-        
+	$row_product_orders = $db->get_a_line($sql);
+        $id = str_replace('=', '', base64_encode (base64_encode ($row_product_orders['txn_id'])));
+   
 	$productContent[$i]['name'] = $row_product['product_name'];
 	$productContent[$i]['pshort'] = $row_product['pshort'];
 	$productContent[$i]['description'] = $row_product['prod_description'];
@@ -98,21 +99,21 @@ if(count($products) > 0)
 		
 		if($row_total_checked['total'] == '0')
 			{
-				$getprod	= "<a href='paid.php?pid=".$row_product[id]."'>Click Here For Download Page</a><br>
+				$getprod	= "<a href='paid.php?pid=".$product[product_id]."'>Click Here For Download Page</a><br>
 				<a href='index.php?page=messages&pid=".$row_product[pshort]."'>Click Here To Access Your Coaching Module</a>
 				(". $row_total['total'] .")";
-				/*$getprod	= "<a href='paid.php?pid=".$row_product[id]."'>Click Here For Download Page</a>";*/			
+				/*$getprod	= "<a href='paid.php?pid=".$product[product_id]."'>Click Here For Download Page</a>";*/			
 			}
 		else
 			{
-				$getprod	= "<a href='paid.php?pid==".$row_product[id]."'>Click Here For Download Page</a><br>
+				$getprod	= "<a href='paid.php?pid==".$product[product_id]."'>Click Here For Download Page</a><br>
 				<a href='index.php?page=messages&pid=".$row_product[pshort]."'>
 				Click Here To Access Your Coaching Module (". $row_total['total'] .")  ". $row_total_checked['total'] ." New</a>";
-				/*$getprod = "<a href='paid.php?pid==".$row_product[id]."'>Click Here For Download Page</a>";*/
+				/*$getprod = "<a href='paid.php?pid==".$product[product_id]."'>Click Here For Download Page</a>";*/
 			} // end count1		
 		} // end coaching on
 	else
-		$getprod = "<a href='paid.php?pid=".$row_product['id']."'>Click Here For Download Page</a>";
+		$getprod = "<a href='paid.php?pid=".$product[product_id]."'>Click Here For Download Page</a>";
 		$productContent[$i]['getprod'] = $getprod;		
 	
 	$i++;	}
