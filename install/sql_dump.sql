@@ -551,6 +551,7 @@ CREATE TABLE IF NOT EXISTS `rrp_orders` (
   `referrer` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `payment_type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `payment_gateway` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `subscriber_id` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
