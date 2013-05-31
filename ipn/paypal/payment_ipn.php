@@ -1,5 +1,4 @@
 <?php
-
 $output = '';
 include "include.php";
 $path_to_curl = 'PHP';
@@ -140,9 +139,6 @@ $r = $db->get_a_line($q);
 $prod = $r['product_name'];
 $price = $r['price'];
 $prodtype = $r['prodtype'];
-
-
-
 // open text log file
 $log = fopen("ipn.log", "a+");
 fwrite($log, "\n\nipn - " . gmstrftime("%b %d %Y %H:%M:%S", time()) . "\n");
@@ -160,9 +156,9 @@ $http_path/admin \n
 $mailer_details; 
 ";
 $to = "$webmaster_email";
-$header = "From: System Generated Email <noreply@rapidresidualpro.com>";
-//$header.= "cc: Yasir Rehman <yasir.rehman@live.com>";
-@mail($to, "New Order is completed", $values, $header);
+$header = "From: IPN System Generated Email [$sitename] <$webmaster_email>";
+
+
 
 $post = print_r($_POST);
 fwrite($log, "Vals: " . $item_number . " " . $item_name . " " . $mc_gross . " " . $payment_status . " " . $pending_reason . " " . $txn_id . " " . $payer_email . " " . $rand . " " . $pp_debug . "\n ");
@@ -179,58 +175,8 @@ if (ereg('VERIFIED', $output)) {
     // Process subscriptions before payment is made
     switch ($txn_type) {
         case 'subscr_signup':
-            /* $set = "item_number='$item_number'";
-              $set .= ", item_name='$prod'";
-              $set .= ", date='$today'";
-              $set .= ", payment_amount='$amount3'";
-              $set .= ", payer_email='$payer_email'";
-              $set .= ", payment_type='$payment_type'";
-              $set .= ", txnid='$subscr_id'";
-              $set .= ", payee_email='$business'";
-              $set .= ", referrer='$ref'";
-              $set .= ", randomstring='$rand'";
-              $set .= ", subscriber_id='$subscr_id'";
-              $string =  $sql = "insert into " . $prefix . "orders set $set";
-              $db->insert($sql); // 	CREATE A NEW ORDER
-
-              if ($ttype == "inside") {
-              $q = "select id as mid from " . $prefix . "members where randomstring='$rand'";
-              $string.='\n'.$q;
-              $r = $db->get_a_line($q);
-              @extract($r);
-              $set = "member_id='$mid'";
-              $set .= ", product_id='$pid'";
-              $set .= ", date_added='$today'";
-              $set .= ", txn_id='$txn_id'";
-              $set .= ", type='$prodtype'";
-              $q = "insert into " . $prefix . "member_products set $set";
-              $string.='\n'.$q;
-              $db->insert($q);
-              } // end inside
-              if ($ttype == "outside") {
-              $now = time();
-              $set = "date_joined = now(),";
-              $set .= "ip='$ip',";
-              $set .= "last_login = $now,";
-              $set .= "firstname='Account',";
-              $set .= "lastname='Pending',";
-              $set .= "email='$payer_email',";
-              $set .= "ref='$ref',";
-              $set .= "randomstring = '$rand'";
-              $mid = $db->insert_data_id("insert into " . $prefix . "members set $set");
-              // insert into member products table
-              $set = "member_id='$mid'";
-              $set .= ", product_id='$pid'";
-              $set .= ", date_added='$today'";
-              $set .= ", txn_id='$subscr_id'";
-              $set .= ", type='$prodtype'";
-              $q = "insert into " . $prefix . "member_products set $set";
-              $string.='\n'.$q;
-              $db->insert($q);
-              } // End outside
-              mail('yasir509@gmail.com','Sub Signup',$string); */
-
-            break; // end subscr_signup	
+        
+		break; // end subscr_signup	
 
         case 'subscr_payment':
             $sql = "select count(*) as total from " . $prefix . "orders where subscriber_id='$subscr_id'";
@@ -269,7 +215,7 @@ if (ereg('VERIFIED', $output)) {
                     $string.='\n' . $q;
                     $db->insert($q);
                 }
-                //mail('yasir509@gmail.com', 'SUBSCRIBTION PAYMENT', $string);
+                 
             } else {
                 $set = "item_number='$item_number'";
                 $set .= ", item_name='$prod'";
@@ -288,7 +234,7 @@ if (ereg('VERIFIED', $output)) {
 
                 if ($ttype == "inside") {
                     $q = "select id as mid from " . $prefix . "members where randomstring='$rand'";
-                    $string.='\n' . $q;
+                    $string.=' \n ' . $q;
                     $r = $db->get_a_line($q);
                     @extract($r);
                     $set = "member_id='$mid'";
@@ -297,8 +243,9 @@ if (ereg('VERIFIED', $output)) {
                     $set .= ", txn_id='$subscr_id'";
                     $set .= ", type='$prodtype'";
                     $q = "insert into " . $prefix . "member_products set $set";
-                    $string.='\n' . $q;
+                    $string.=' \n ' . $q;
                     $db->insert($q);
+					@mail($to, "New Order is completed", $values, $header);
                 } // end inside
                 if ($ttype == "outside") {
                     $now = time();
@@ -310,7 +257,7 @@ if (ereg('VERIFIED', $output)) {
                     $set .= "email='$payer_email',";
                     $set .= "ref='$ref',";
                     $set .= "randomstring = '$rand'";
-                    $string.='\n' . $q = "insert into " . $prefix . "members set $set";
+                    $string.='  \n\t   ' . $q = "insert into " . $prefix . "members set $set";
                     $mid = $db->insert_data_id("insert into " . $prefix . "members set $set");
                     // insert into member products table			
                     $set = "member_id='$mid'";
@@ -319,10 +266,11 @@ if (ereg('VERIFIED', $output)) {
                     $set .= ", txn_id='$subscr_id'";
                     $set .= ", type='$prodtype'";
                     $q = "insert into " . $prefix . "member_products set $set";
-                    $string.='\n' . $q;
+                    $string.='  \n\t  ' . $q;
                     $db->insert($q);
+					@mail($to, "New Order is completed", $values, $header);
                 } // End outside		
-                // mail('yasir509@gmail.com', 'SUBSCRIBTION SIGNUP', $string);
+                 
             }
 
 
@@ -489,6 +437,8 @@ if (ereg('VERIFIED', $output)) {
                             $set .= ", txn_id='$txn_id'";
                             $set .= ", type='$prodtype'";
                             $mid = $db->insert_data_id("insert into " . $prefix . "member_products set $set");
+							
+							
                         }
                         break; // end outside			
 
@@ -517,7 +467,7 @@ if (ereg('VERIFIED', $output)) {
                         }
                         break; // end inside			
                 }
-
+				@mail($to, "New Order is completed", $values, $header);	
                 break; // end web_accept
             // This payment was sent by your customer via the PayPal Shopping Cart feature
             case 'cart':
