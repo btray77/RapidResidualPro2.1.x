@@ -352,7 +352,7 @@ class common {
             $email_from_name = $webmaster_email;
         if ($mailer == 'smtp') {
             $mail->Mailer = $mailer; // enable SMTP
-            $mail->IsHTML(false);
+            $mail->IsHTML();
             $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
             $mail->SMTPAuth = true;  // authentication enabled
             $mail->SMTPSecure = $smtpsecure; // secure transfer enabled REQUIRED for Gmail
@@ -691,7 +691,7 @@ class common {
                 } else {
                     $cssStyle = "";
                 }
-                if ($difference >= $available) {
+                if ($difference >= $available && $this->isdownloadbale($prefix, $db,$pid)) {
                     $list.= '<li>
 					<a ' . $cssStyle . ' href=time-content.php?content=' . $filename . '&tcontent1=' . $tcontent1 . '&pid=' . $pid . '#top>' . $pagename . '</a></li>';
                 } else {
@@ -705,6 +705,21 @@ class common {
         return $list;
     }
     //=====================================================================================
+	function isdownloadbale($prefix, $db,$pid){
+		if (empty($_SESSION['memberid']))
+            $memberid = $_COOKIE['memberid'];
+        else
+            $memberid = $_SESSION['memberid'];
+	 $sql="select count(id) as total from " . $prefix . "member_products where member_id='$memberid' && product_id = '$pid' && refunded='0'";
+	 $v = $db->get_a_line($sql);
+	 extract($v);
+	 if($total==0)
+		 return false;
+	 else 
+		 return true;
+			
+	}
+	//=====================================================================================
     function time_release_difference($prefix, $db, $product_id, $memberid) {
         //$q = "select (DATEDIFF(NOW(),`date_added`)) as diff from rrp_member_products where product_id='$product_id' AND member_id = '$memberid'";
       $q = "SELECT (DATEDIFF(NOW(), mprod.date_added)) as diff, mprod.txn_id as txn_id, ord.txnid as txnid, mprod.product_id as product_id, mprod.member_id as member_id, ord.payment_status as payment_status
