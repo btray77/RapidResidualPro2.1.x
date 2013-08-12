@@ -400,7 +400,7 @@ if (ereg('VERIFIED', $output)) {
                             $q = "select product_name from " . $prefix . "products where id='$item_number'";
                             $c = $db->get_a_line($q);
                             @extract($c);
-                            $signup_link = $http_path . "signup.php?randomstring=" . $rand;
+                            $signup_link = $http_path . "/signup.php?randomstring=" . $rand;
 
                             // send new member signup email to member
                             $q = "select subject, message from " . $prefix . "emails where type='Email sent to new member after echeck clears'";

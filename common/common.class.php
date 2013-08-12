@@ -364,7 +364,7 @@ class common {
             //$mail->AddReplyTo($webmaster_email, $sender_name);
             $mail->Subject = $subject;
             //$body = $body . "<p>$mailer_details</p>";
-            $mail->Body = $body;
+            $mail->Body = nl2br($body);
             $mail->AddAddress($email);
             if (!$mail->Send()) {
                 $error = '<div class="error">Mail error: ' . $mail->ErrorInfo . "</div>";
@@ -376,7 +376,7 @@ class common {
             $header = 'MIME-Version: 1.0' . "\r\n";
             $header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $header .= "From: " . $sender_name . " <" . $webmaster_email . ">";
-            $body = $body . "<p>$mailer_details</p>";
+            $body = nl2br($body . "<p>$mailer_details</p>");
             if (!mail($email, $subject, $body, $header)) {
                 $error = '<div class="error">Mail error: Sorry your server can not send email using PHP mail. Please configure your SMTP in site settings.</div>';
                 return false;

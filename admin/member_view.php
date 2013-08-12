@@ -161,12 +161,17 @@ $fieldNamesArray = array(
 	$tbl_name=$prefix."members";		//your table name
 	// How many adjacent pages should be shown on each side?
 	$adjacents = 3;
-
+	$keyword = stripslashes(trim($keyword));
+	if(isset($search) && !empty($keyword)){
+		$WHEREX = "WHERE firstname='$keyword' OR lastname='$keyword' OR username='$keyword' OR email='$keyword' ";
+	}
+	else
+		$WHEREX = '';
 	/*
 	 First get total number of rows in data table.
 	 If you have a WHERE clause in your query, make sure you mirror it here.
 	 */
-	$query = "select count(*) as num from $tbl_name";
+	$query = "select count(*) as num from $tbl_name $WHEREX";
 	$total_pages = mysql_fetch_array(mysql_query($query));
 	$total_pages = $total_pages[num];
 
@@ -198,7 +203,7 @@ $fieldNamesArray = array(
 
 	/* Get data. */
 
-	$sql = "SELECT * FROM $tbl_name ORDER BY $field $dir LIMIT $start, $limit";
+	$sql = "SELECT * FROM $tbl_name $WHEREX ORDER BY $field $dir LIMIT $start, $limit";
 	$result = mysql_query($sql);
 
 	/* Setup page vars for display. */
@@ -383,6 +388,13 @@ $fieldNamesArray = array(
 	###### end pagination ##########
 
 	$content = '
+	<form action="" method="get" name="form">
+<fieldset>
+	<legend>Search By </legend>
+	<label>First Name,Last Name,User Name,Email Address </label>
+	<input type="text" name="keyword" alt="Search" value="'.$keyword.'" /><input type="submit" name="search" value="Search" style="float: none;padding: 3px 3px;border-radius: 0px;" />
+</fieldset>
+</form>
 	 <table width="904"><tr><td width="50%" valign="bottom"><span style="float:left;">Select Number of rows per page:</span><form name="limitForm" action="'.$targetpage.'#pagination" method="GET" style="float:left;">
 	 <select name="limit" onchange="document.limitForm.submit()" style="width:100px;"><option value="10"'.isSelected(10,$limit).'>10</option><option value="25"'.isSelected(25,$limit).'>25</option> 
 	 <option value="50" '.isSelected(50,$limit).'>50</option><option value="100" '.isSelected(100,$limit).'>100</option></select>
