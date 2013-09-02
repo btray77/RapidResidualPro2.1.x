@@ -2,7 +2,7 @@
 class ClickBank{
 	private $developerKey;
 	private $apiKey;
-	//	private $secretKey = "304CB24D2FBD";
+	//private $secretKey = "12882575W05588EU";
 	private $db;
 	private $prefix;
 	private $account;
@@ -12,7 +12,7 @@ class ClickBank{
 	
 	
 	function __construct(){
-	//$this->developerKey = "DEV-BF9925DA357383D2578B49FA51F6F1AE9FF2";
+		$this->developerKey = "DEV-BF9925DA357383D2578B49FA51F6F1AE9FF2";
 		$this->apiKey = "API-304CB24D2FBD999B13C6934370AA4A16C365";
 		global $db, $prefix;
 		$this->db = $db;
@@ -104,7 +104,7 @@ class ClickBank{
         // un-escaped before being appended to $pop 
 			//$pop = $pop . $_POST[$field] . "|";
 		}
-		$pop = $pop . $secretKey;
+		$pop = $pop . $this->secretKey;
 		$calcedVerify = sha1(mb_convert_encoding($pop, "UTF-8"));
 		$calcedVerify = strtoupper(substr($calcedVerify,0,8));
 		return $calcedVerify == $_POST["cverify"];
@@ -112,21 +112,24 @@ class ClickBank{
 	
 	
 	function get_member($first_name, $last_name, $address, $city, $state, $zip, $country, $email, $randomstring){
+	$fp = fopen('clickbank.log', 'a');
+	$data='\r\n----------- Create A Member----------------\r\n';
 	$first_name = strtolower($first_name);
 	$last_name = strtolower($last_name);
 		$query = "SELECT id FROM {$this->prefix}members WHERE randomstring = '{$randomstring}'";
 		$rec_member = $this->db->get_a_line($query);
-		if(is_numeric($rec_member['id']) && $rec_member['id']>0) $member_id = $rec_member['id'];
+		if(is_numeric($rec_member['id']) && $rec_member['id'] > 0) 
+			$member_id = $rec_member['id'];
 		else {
 		$query = "INSERT INTO {$this->prefix}members SET firstname = '{$first_name}', lastname = '{$last_name}', email = '{$email}', 
-					address_street = '{$address}', address_city = '{$city}', address_state = '{$state}', address_zipcode = '{$zip}',
-						address_country = '{$country}', date_joined = NOW(), randomstring = '$randomstring'";
+				  address_street = '{$address}', address_city = '{$city}', address_state = '{$state}', address_zipcode = '{$zip}',
+				  address_country = '{$country}', date_joined = NOW(), randomstring = '$randomstring'";
 		$member_id = $this->db->insert_data_id($query);	
 		}
-		$fp = fopen('clickbank.log', 'a');
+		
 		$data .= "\n{$query}\n";
-		$data .= "\n" . mysql_error() . "\n";
-		$data .= "\n{$member_id}\n";
+		$data .= "\n Member Id:" . $member_id . "\n";
+		
 		fwrite($fp, $data);
 		fclose($fp);
 		return $member_id;
@@ -134,7 +137,8 @@ class ClickBank{
 	
 	function set_order($product_id, $product_name, $price, $payment_status, $email, $payment_type, $transaction_id, $rand, $referrer ,$affiliateid){
 		$payee_email = $affiliateid;
-		
+		$fp = fopen('clickbank.log', 'a');
+		$data='\r\n----------- Set Orders----------------\r\n';
 		$set	= "item_number='$product_id'";
 		$set	.= ", item_name='$product_name'";
 		$set	.= ", date=NOW()";
@@ -147,16 +151,12 @@ class ClickBank{
 		$set	.= ", referrer='$referrer'";
 		$set	.= ", payment_gateway='ClickBank'";
 		$set	.= ", payment_type='$payment_type'";
-		
 		$query = "INSERT INTO {$this->prefix}orders SET {$set} ";
-		
 		$order_id = $this->db->insert_data_id($query);
 		
-		$fp = fopen('clickbank.log', 'a');
-		$data .= "\n Place New Order\n";
 		$data .= "\n{$query}\n";
-		$data .= "\nOrder Id:$order_id\n";
-		$data .= "\n" . mysql_error() . "\n";
+		$data .= "\n Order Id: " . $order_id . "\n";
+		
 		fwrite($fp, $data);	
 		fclose($fp);	
 		return $order_id;	
@@ -164,6 +164,8 @@ class ClickBank{
 	}
 	
 	function add_product_to_member($member_id, $product_id, $transaction_id, $product_type){
+		$fp = fopen('clickbank.log', 'a');
+		$data='\r\n----------- Add Product to Member----------------\r\n';
 		$set	= "member_id='$member_id'";
 		$set	.= ", product_id='$product_id'";
 		$set	.= ", date_added=NOW()";
@@ -176,6 +178,7 @@ class ClickBank{
 		$data .= "\r\n Save Infomration in Product Order\n";
 		$data .= "\r\n{$q}\n";
 		$data .= "\r\n" . mysql_error() . "\n";
+		
 		fwrite($fp, $data);	
 		fclose($fp);
 		return true;		
@@ -190,9 +193,10 @@ function get_product_id($product_name){
 	//cprodtitle	ctid
 function ipn(){
 	$fp = fopen('clickbank.log', 'a');
-	echo $string .= 'Script Started: ' . date('Ymd His') . "\r\n";
+	$data='\r\n----------- Loading IPN----------------\r\n';
+	$string .= 'Script Started: ' . date('Ymd His') . "\r\n";
 	
-	$product_name           = $this->filter($_POST['cprodtitle']);
+	$product_name           = addslashes($this->filter($_POST['cprodtitle']));
 	$product_code           = $this->filter($_POST['cproditem']);
 	$price 		  	= (float) $this->filter($_POST['corderamount'])/100;
 	$product_type           = $this->filter($_POST['cprodtype']);
@@ -234,12 +238,6 @@ function ipn(){
 	}
 	@extract($p);
 	
-	/*
-		$_rand = explode('=', $temp[0]);
-		$_referrer = explode('=', $temp[2]);
-		$rand = $_rand[1];
-		$referrer = $_referrer[1];
-	*/
 	$string .= "\n" . print_r($p, true) . "\n";
 	$string .="\n";
 	$randomstring = str_replace("randomstring=",'',$randomstring);
@@ -247,15 +245,28 @@ function ipn(){
 	$string .="\nRandomString:".$randomstring;
 	$string .="\nIp:".$ip;
 	$string .="\nProduct_id:".$product_id;
-        $string .="\nReferrer:".$referrer;
-	$string .="\nMember:".$member;
+    $string .="\nReferrer:".$referrer;
+	$string .="\n pid:".$pid;
+	$string .="\n product_name:".$product_name;
+	$string .="\n payment_status:".$payment_status;
+	$string .="\n email:".$email;
+	$string .="\n payment_method:".$payment_method;
+	$string .="\n randomstring:".$randomstring;
+	$string .="\n referrer:".$referrer;
+	$string .="\n ctranspublisher:".$ctranspublisher;
 	fwrite($fp, $string);
 	fclose($fp);
 	switch($payment_status){
 	case 'Completed':
             $member_id = $this->get_member($first_name, $last_name, $address, $city, $state, $zip, $country, $email, $randomstring);
-            $order_id = $this->set_order($pid, $product_name, $price, $payment_status, $email, $payment_method, $transaction_id, $randomstring, $referrer,$ctranspublisher);
-            $this->add_product_to_member($member_id, $pid, $transaction_id, $product_type);
+			$string .="\n member_id:".$member_id;
+			$order_id = $this->set_order($pid, $product_name, $price, $payment_status, $email, $payment_method, $transaction_id, $randomstring, $referrer,$ctranspublisher);
+	       $string .="\n order_id:".$order_id;
+			  $this->add_product_to_member($member_id, $pid, $transaction_id, $product_type);
+				$string .="\n transaction_id:".$transaction_id;
+				$string .="\n product_type:".$product_type;
+				
+					
 	break; 
 	case 'Sale-RB':
 	break;
@@ -268,6 +279,8 @@ function ipn(){
 	
 	case 'Chargeback':
 	break;
+	
+	
         }
 }
 function filter($var){
