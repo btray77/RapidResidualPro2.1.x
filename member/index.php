@@ -1,14 +1,14 @@
 <?php
+session_start();
+if(isset($_POST['mrand']))
+	$_SESSION['mrand'] = $_POST['mrand'];
+	
 include ("include.php");
 include_once("session.php");
+unset($_SESSION['mrand']);
 $today = date('Y-m-d');
 $pshort = $_REQUEST['pshort'];
 
-/*echo '<pre>';
-print_r($_SESSION);
-echo "<br>COOKIES<br>";
-print_r($_COOKIE);
-echo '<pre>';*/
 
 $q = "select * from ".$prefix."products where pshort='$pshort'";
 $r = $db->get_a_line($q);

@@ -1,7 +1,8 @@
-<?php 
+<?php session_start();
 class Session {
+	
     function verifylogin($db, $common, $dUser, $dPass) {
-	session_start();
+	
         include("../common/config.php");
         $dUser = stripslashes(trim($dUser));
         $dPass = stripslashes(trim($dPass));
@@ -189,9 +190,11 @@ class Session {
 
 }
 
-// end of class
 $obj = new Session;
 $ip = get_real_IP_address();
+if(isset($_SESSION['mrand']))
+	$mrand = $_SESSION['mrand'];
+
 if ($mrand) {
     $country = addslashes(trim($_POST["country"]));
     $city = addslashes(trim($_POST["city"]));
