@@ -29,7 +29,7 @@ $home_page_product 	= stripslashes($home_page);
 $product_name 		= $v['product_name'];
 $pid 				= $v['id'];
 $price				= $v['price'];
-$price				= number_format($price,2);
+$price				= $price;
 $image				= $v['image'];
 $image_alertpay		= $v['alertpay_image'];
 $commission			= $v['commission'];
@@ -51,12 +51,12 @@ $period2_value 		= $v['period2_value'];
 $period2_interval 	= $v['period2_interval'];		
 $amount3 			= $v['amount3'];	
 $period3_value 		= $v['period3_value'];	
-$period3_interval 		= $v['period3_interval'];
+$period3_interval 	= $v['period3_interval'];
 $prodtype		 	= $v['prodtype'];
 $srt 				= $v['srt'];
-$billing_cycle 			= $v['srt'];
-$squeeze_check 			= $v['squeeze_check'];
-$squeezename 			= $v['squeezename'];
+$billing_cycle 		= $v['srt'];
+$squeeze_check 		= $v['squeeze_check'];
+$squeezename 		= $v['squeezename'];
 $pp_header			= $v['pp_header'];
 $pp_return			= $v['pp_return'];
 $t_name             = $v['template'];
@@ -148,7 +148,7 @@ if($coupon != '')
                         {
                             $price=0;$fprice=0;
                         }
-                         $discount_price=number_format($price,2);
+                         $discount_price=$price;
 			if($amount3 == '0')
 				{
 				$fullcoupon = '1';
@@ -157,13 +157,13 @@ if($coupon != '')
 		elseif ($subscription_active =='')
 			{
 			$fprice = $fprice - $discount;
-                        $price = $price - $discount;
+            $price = $price - $discount;
                         if($price < 0 || $fprice < 0)
                         {
                             $price=0;$fprice=0;
                         }
                         
-                        $discount_price=number_format($price,2);
+                        $discount_price=$price;
 			if($price == '0')
 				{
 				$fullcoupon = '1';
@@ -322,7 +322,7 @@ $image=str_replace("..",'',$image);
 		}
 	
 	
-        if($fullcoupon == '1')
+    if($fullcoupon == '1')
 	{
                 if(!empty($ref)){
                     $paypal_button = "<a href='free.php?pshort=$short&c=$coupon&ref=$ref'><img style='border: 0pt none ;' src='".$image."'></a>";

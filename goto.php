@@ -24,7 +24,6 @@ switch(count($var_array)){
 	break;
 	
 }
-;
 /***********************************************************************************************/
 if($total==3)  // Affiliate Name / product name / coupon code
 {

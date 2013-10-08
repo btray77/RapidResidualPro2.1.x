@@ -143,22 +143,22 @@ $prodtype = $r['prodtype'];
 $log = fopen("ipn.log", "a+");
 fwrite($log, "\n\nipn - " . gmstrftime("%b %d %Y %H:%M:%S", time()) . "\n");
 $values = "
-You've received a new order at $sitename [$http_path]\n
-Here are your order details:\n
-Item Number: $item_number \n 
-Product Name: $item_name\n
+You've received a new order at $sitename [$http_path]<br />
+Here are your order details:<br />
+Item Number: $item_number <br />
+Product Name: $item_name <br />
 Product Price: $mc_gross\n
-Payment Status: $payment_status\n
-Transaction Id: $txn_id \n
-Payer Email:$payer_email \n
-To review this order in detail, log into your site Admin below: \n
-$http_path/admin \n
-$mailer_details; 
-";
+Payment Status: $payment_status <br />
+Transaction Id: $txn_id <br />
+Payer Email:$payer_email <br />
+To review this order in detail, log into your site Admin below: <br />
+$http_path/admin <br />
+$mailer_details; ";
 $to = "$webmaster_email";
-$header = "From: IPN System Generated Email [$sitename] <$webmaster_email>";
 
-
+$header  = 'MIME-Version: 1.0' . "\r\n";
+$header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$header .= "From: System Generated Email [$sitename] <$webmaster_email>";
 
 $post = print_r($_POST);
 fwrite($log, "Vals: " . $item_number . " " . $item_name . " " . $mc_gross . " " . $payment_status . " " . $pending_reason . " " . $txn_id . " " . $payer_email . " " . $rand . " " . $pp_debug . "\n ");
@@ -216,7 +216,7 @@ if (ereg('VERIFIED', $output)) {
                     $db->insert($q);
                 }
                  
-            } else {
+				} else {
                 $set = "item_number='$item_number'";
                 $set .= ", item_name='$prod'";
                 $set .= ", date='$today'";
@@ -272,7 +272,22 @@ if (ereg('VERIFIED', $output)) {
                 } // End outside		
                  
             }
+                    /************************************************************************/
+                    $message="
+                    Dear $first_name $last_name:
+                    <p>Thank you for purchasing $item_name!</p>
 
+                    <p>Please follow the link below to complete the signup process and
+                    log into your private member area at $sitename where access to 
+                    your purchase is now available to you.</p>
+                    <p>	
+                    ".$http_path."/paypal_return.php?randomstring=".$rand."
+                    </p>
+                    Warmest Regards, 
+                    Site Admin";
+
+                    @mail($payer_email, "Complete your account signup for $sitename", $message, $header);	
+                    /*****************************************************************************/
 
             break;
         case 'subscr_cancel':
@@ -467,7 +482,23 @@ if (ereg('VERIFIED', $output)) {
                         }
                         break; // end inside			
                 }
-				@mail($to, "New Order is completed", $values, $header);	
+                        @mail($to, "New Order is completed", $values, $header);
+                        /************************************************************************/
+                        $message="
+                        Dear $first_name $last_name:
+                        <p>Thank you for purchasing $item_name!</p>
+
+                        <p>Please follow the link below to complete the signup process and
+                        log into your private member area at $sitename where access to 
+                        your purchase is now available to you.</p>
+                        <p>	
+                        ".$http_path."/paypal_return.php?randomstring=".$rand."
+                        </p>
+                        Warmest Regards, 
+                        Site Admin";
+
+                        @mail($payer_email, "Complete your account signup for $sitename", $message, $header);	
+                        /*****************************************************************************/
                 break; // end web_accept
             // This payment was sent by your customer via the PayPal Shopping Cart feature
             case 'cart':
