@@ -53,22 +53,26 @@ if (isset($_REQUEST['Submit']))
 /***************************************************************************************************/
 if(isset($_POST['submit_contact'])){
 	if( $_SESSION['security_code'] == $_POST['captchastring'] && !empty($_SESSION['security_code'] ) ) {
-            $SQL="SELECT webmaster_email FROM ".$prefix."admin_settings WHERE role = 1;";
-            $admin_settings = $db->get_a_line($SQL);
+            $SQL="select sitename, email_from_name from " . $prefix . "site_settings";
+			// $SQL="SELECT webmaster_email FROM ".$prefix."admin_settings WHERE role = 1;";
+			$admin_settings = $db->get_a_line($SQL);
             @extract($admin_settings);
-		$to=$webmaster_email;
-		$headers = 'From: '. $_REQUEST['name']. "< ". $_REQUEST['email'] .">\r\n" .
-                'Reply-To: '.$_REQUEST['email']."\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-		$subject= stripslashes($_REQUEST["subject"]);
-        $message ="From Contact Us form on $http_path:\n";
-		$message .= stripslashes($_REQUEST["message"]);
+			$to=$email_from_name;
+			
+			$headers = 'From: '. $_REQUEST['name']. "< ". $_REQUEST['email'] .">\r\n" .
+        	 	       'Reply-To: '.$_REQUEST['email']."\r\n" .
+            		   'X-Mailer: PHP/' . phpversion();
+			$headers  .= 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";	   
+			$subject= stripslashes($_REQUEST["subject"]);
+    	    $message ="<p>From Contact Us form on $sitename:</p>";
+			$message .= nl2br(stripslashes($_REQUEST["message"]));
                 
-		if(mail($to,$subject,$message,$headers))
-			$error='<div class="success" style="width:90%;float:left;clear:both">Thankyou your request is successfully posted. We will contact you soon.</div>';
-		else 
-			$error='<div class="error" style="width:90%;float:left;clear:both">Sorry we unble to send an email. Please try again.</div>';
-		$name=''; $subject=''; $message=''; $email='';
+			if(mail($to,$subject,$message,$headers))
+				$error='<div class="success" style="width:90%;float:left;clear:both">Thankyou your request is successfully posted. We will contact you soon.</div>';
+			else 
+				$error='<div class="error" style="width:90%;float:left;clear:both">Sorry we unble to send an email. Please try again.</div>';
+			$name=''; $subject=''; $message=''; $email='';
 	}
 	else{
 	  
