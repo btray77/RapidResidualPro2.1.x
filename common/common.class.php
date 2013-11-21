@@ -346,11 +346,10 @@ class common {
         global $error;
         $mail = new PHPMailer();  // create a new object
         //$mail->IsSMTP(); 
-        if (!empty($sender_name))
-            $from_name = $sender_name;
-        if (!empty($webmaster_email))
-            $email_from_name = $webmaster_email;
-        if ($mailer == 'smtp') {
+        if (empty($email))
+            $email = $email_from_name;
+			
+		if ($mailer == 'smtp') {
             $mail->Mailer = $mailer; // enable SMTP
             $mail->IsHTML();
             $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
@@ -364,7 +363,7 @@ class common {
             //$mail->AddReplyTo($webmaster_email, $sender_name);
             $mail->Subject = $subject;
             //$body = $body . "<p>$mailer_details</p>";
-            $mail->Body = nl2br($body);
+			$mail->Body = nl2br($body);
             $mail->AddAddress($email);
             if (!$mail->Send()) {
                 $error = '<div class="error">Mail error: ' . $mail->ErrorInfo . "</div>";
@@ -691,7 +690,7 @@ class common {
                 } else {
                     $cssStyle = "";
                 }
-                if ($difference >= $available && $this->isdownloadbale($prefix, $db,$pid)) {
+                if ($difference >= $available) {
                     $list.= '<li>
 					<a ' . $cssStyle . ' href=time-content.php?content=' . $filename . '&tcontent1=' . $tcontent1 . '&pid=' . $pid . '#top>' . $pagename . '</a></li>';
                 } else {
@@ -705,21 +704,6 @@ class common {
         return $list;
     }
     //=====================================================================================
-	function isdownloadbale($prefix, $db,$pid){
-		if (empty($_SESSION['memberid']))
-            $memberid = $_COOKIE['memberid'];
-        else
-            $memberid = $_SESSION['memberid'];
-	 $sql="select count(id) as total from " . $prefix . "member_products where member_id='$memberid' && product_id = '$pid' && refunded='0'";
-	 $v = $db->get_a_line($sql);
-	 extract($v);
-	 if($total==0)
-		 return false;
-	 else 
-		 return true;
-			
-	}
-	//=====================================================================================
     function time_release_difference($prefix, $db, $product_id, $memberid) {
         //$q = "select (DATEDIFF(NOW(),`date_added`)) as diff from rrp_member_products where product_id='$product_id' AND member_id = '$memberid'";
       $q = "SELECT (DATEDIFF(NOW(), mprod.date_added)) as diff, mprod.txn_id as txn_id, ord.txnid as txnid, mprod.product_id as product_id, mprod.member_id as member_id, ord.payment_status as payment_status
@@ -860,14 +844,14 @@ class common {
                     $file=$this->http_path."/$media_path/".$results['content_id'];
                     else
                     $file = "" . $this->http_path . "/videos/" . $results['hidden_id'];
-                    $download = "" . $this->http_path . "/download/" . $results['hidden_id'];
+                    $download = "" . $this->http_path . "/download/" . $results[hidden_id];
                     $download_link = ($results['download_link'] == 'Yes') ? '<a href="' . $download . '">'. $button .'</a>' : '';
                 } else {
                     if (preg_match("/iP(od|hone|ad)/i", $_SERVER["HTTP_USER_AGENT"]))
                             $file = "https://s3.amazonaws.com/".$results['bucket_id'].'/'.$results['content_id'];
                    else
                             $file = "" . $this->http_path . "/videos/" . $results['hidden_id'];
-                   $download = "" . $this->http_path . "/download/" . $results['hidden_id'];	
+                   $download = "" . $this->http_path . "/download/" . $results['content_id'];	
                    $download_link = ($results['download_link'] == 'Yes') ? '<a href="'. $download .'">'. $button .'</a>' : '';
                 }
                 if (!empty($file)) {

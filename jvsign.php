@@ -102,7 +102,7 @@ if (isset($_REQUEST['Submit']))
 		$message = preg_replace("/{(.*?)}/e","$$1",$message);
 		$message = $message."\r\n\r\n".$mailer_details;
 		$header	= "From: ".$email_from_name." <".$webmaster_email.">";
-                $message = str_replace("'", "", $message);
+        $message = str_replace("'", "", $message);
                 
 		$common->sendemail($email_from_name,$webmaster_email,$email,$subject,$message,$header);
 		
@@ -116,7 +116,7 @@ if (isset($_REQUEST['Submit']))
 		$header	= "From: ".$email_from_name." <".$webmaster_email.">";
                  $message = str_replace("'", "", $message);
                  
-                 $common->sendemail($email_from_name,$webmaster_email,$email,$subject,$message,$header);
+                 $common->sendemail($email_from_name,$webmaster_email,'',$subject,$message,$header);
 		/******************  ADD TO AUTO RESPONDERS   ************************/
                  $autoresponder = $obj_responder -> process_Autoresponders();
         /******************  END TO AUTO RESPONDERS   ************************/		
