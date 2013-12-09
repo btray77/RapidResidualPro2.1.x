@@ -201,7 +201,7 @@ $panel =  file_get_contents("http://www.rapidresidualpro.com/admin_panel/panel.p
 <div class="content-wrap-top"></div>
 <div class="content-wrap-inner">
     <div style="width: 68%;float: left;">
-        <div class="mainleft"><?php echo $panel?></div>
+		<iframe src="http://www.rapidresidualpro.com/admin_panel/panel.php" style="width: 96%;height: 317px;border: 1px solid #c4c4c4;margin-left: 10px;"></iframe>
         <div id="main" class="main-graph"><IFRAME SRC="/graph/" HEIGHT=300 frameborder=0></IFRAME></div> 
     </div>	
         <div class="mainright">
