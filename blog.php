@@ -90,7 +90,7 @@ $pager=$common->pagiation_simple('blog.php?archive',$limit,$row_total['total'],$
 }
 else if($page)
 {
-	$sql_blogs = "SELECT pageid,filename,pagename,date_added,pcontent,keywords,description FROM ".$prefix."pages where filename='$page' and published=1 ";
+	$sql_blogs = "SELECT pageid,filename,pagename,date_added,pcontent,comments,keywords,description FROM ".$prefix."pages where filename='$page' and published=1 ";
 	$smarty->assign('blogs_detail','1');
 }
 else 
@@ -98,7 +98,7 @@ else
 	$sql_count ="select count(pageid) as total from ".$prefix."pages where type = 'blog' and published=1";
 	$row_total = $db->get_a_line($sql_count);	
 	
-	$sql_blogs = "SELECT pageid,filename,pagename,date_added,description,keywords FROM ".$prefix."pages where `type`='blog' and published=1
+	$sql_blogs = "SELECT pageid,filename,pagename,date_added,comments,description,keywords FROM ".$prefix."pages where `type`='blog' and published=1
 	  ORDER BY date_added DESC LIMIT $start,$limit";
 
 	$pager=$common->pagiation_simple('blog.php',$limit,$row_total['total'],$pageno,$start,'');
@@ -161,17 +161,21 @@ if($page){
  }
  
 /********************************************************************************/
-$page_content = preg_replace('/\{\{([a-zA-Z0-9_]*)\}\}/e', "$$1", $row_blogs['pcontent']);
+				
+				$page_content = preg_replace('/\{\{([a-zA-Z0-9_]*)\}\}/e', "$$1", $row_blogs['pcontent']);
 				$smarty->assign('ptype','blog');	
 			 	$smarty->assign('page',$row_blogs['filename']);
-			 	$smarty->assign('display_name',$_SESSION['display_name']);	
-			 	$smarty->assign('display_url',$_SESSION['display_url']);	
-			 	$smarty->assign('post_comments',$_SESSION['comment']);	
-				$smarty->assign('error',$errors);
-				
-				$smarty->assign('out_comments', $out_comments);
-			 	$output_comment = $smarty->fetch('html/comments.tpl');
-			 	
+				if($row_blogs['comments']!='no'){
+					$smarty->assign('display_name',$_SESSION['display_name']);	
+					$smarty->assign('display_url',$_SESSION['display_url']);	
+					$smarty->assign('post_comments',$_SESSION['comment']);	
+					$smarty->assign('error',$errors);
+					
+					$smarty->assign('out_comments', $out_comments);
+					$output_comment = $smarty->fetch('html/comments.tpl');
+			 	}
+				else
+				$output_comment='';
 			 	$smarty->assign('pagename', stripslashes(strip_tags($row_blogs['pagename'])));
 				$smarty->assign('pcontent', stripslashes($page_content));	
 				$smarty->assign('date_added', $row_blogs[date_added]);
