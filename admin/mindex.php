@@ -1,34 +1,36 @@
 <?php
+ini_set('enable_post_data_reading','0');
 include "session.php";
 include "header.php";
-$GetFile = file("../html/admin/mindex.html");
-$Content = join("", $GetFile);
+//$GetFile = file("../html/admin/mindex.html");
+//$Content = join("", $GetFile);
 
-function encodeHTML($sHTML)
+/*function encodeHTML($sHTML)
 {
 	$sHTML=ereg_replace("&","&amp;",$sHTML);
 	$sHTML=ereg_replace("<","&lt;",$sHTML);
 	$sHTML=ereg_replace(">","&gt;",$sHTML);
 	return $sHTML;
-}
+}*/
 
 if (isset($_POST['submit']))
 {
-	$member_main		= $db->quote($_POST["member_main"]);
-	$jv_main		= $db->quote($_POST["jv_main"]);
-	$affiliate_main		= $db->quote($_POST["affiliate_main"]);
-	$memb_menu = $db->quote($_POST["member_menu"]);
-	$jv_menu = $db->quote($_POST["jv_menu"]);
-	$aff_menu = $db->quote($_POST["aff_menu"]);
+	$member_main		= addslashes($_POST["member_main"]);
+	$jv_main			= addslashes($_POST["jv_main"]);
+	$affiliate_main		= addslashes($_POST["affiliate_main"]);
+	$memb_menu 			= $_POST["member_menu"];
+	$jv_menu 			= $_POST["jv_menu"];
+	$aff_menu 			= $_POST["aff_menu"];
 
-	$set = "member_main  = {$member_main}, ";
-	$set .= "jv_main = {$jv_main}, ";
-	$set .= "affiliate_main	= {$affiliate_main},";
-	$set .= "member_menu_id = {$memb_menu}, ";
-	$set .= "affiliate_menu_id = {$aff_menu}, ";
-	$set .= "jv_menu_id = {$jv_menu}";
+	$set = "member_main  = '{$member_main}', ";
+	$set .= "jv_main = '{$jv_main}', ";
+	$set .= "affiliate_main	= '{$affiliate_main}',";
+	$set .= "member_menu_id = '{$memb_menu}', ";
+	$set .= "affiliate_menu_id = '{$aff_menu}', ";
+	$set .= "jv_menu_id = '{$jv_menu}'";
 
 	$q = "update ".$prefix."misc_pages set $set where id='1'";
+	
 	$db->insert($q);
 	$msg = "<div class='success'><img src='/images/tick.png' align='absmiddle'>Index Pages Successfully Edited.</div>";
 }
@@ -91,7 +93,210 @@ $aff_menus = stripslashes($rslt["affiliate_menu_id"]);
 	$aff_menu .= "</select>";
 	
 
-$Content = preg_replace($Ptn,"$$1",$Content);
-echo $Content;
-include "footer.php";
+//$Content = preg_replace($Ptn,"$$1",$Content);
 ?>
+<!-- ###################### Error Message Start ###################### -->
+<?php echo $msg?>
+
+<!-- ###################### Error Message End ###################### -->
+<!-- ###################### Content Area Start ###################### -->
+<div class="content-wrap">
+<div class="content-wrap-top"></div>
+<div class="content-wrap-inner">
+<p><strong>Member  Area Index Pages</strong></p>
+<div class="formborder"><br />
+<br />
+<form action="mindex.php" method="post" name="form">
+  <table width="95%" align="center" border="0">
+<tr>
+  <td width="100%" align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><b>Member Menu:</b></td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><?php echo $member_menu?></td>
+</tr>
+<tr>
+  <td width="100%" align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><b>Member Index:
+  </b></td>
+</tr>
+<tr>
+  <td align="left" class="tbtext">
+	<textarea name="member_main" cols="100" rows="8" class="inputbox" id="member_main"><?php echo $member_main?></textarea>
+	<script type="text/javascript" language="JavaScript">
+	var oEdit1 = new InnovaEditor("oEdit1");
+    oEdit1.width = 700;
+    oEdit1.height = 450;
+	
+   
+    oEdit1.groups = [
+    ["grpEdit1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog", "Styles", "RemoveFormat"]],
+    ["grpEdit2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+    ["grpEdit3", "", ["TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "ImageDialog", "YoutubeDialog"]],
+    ["grpEdit4", "", ["CharsDialog", "Line", "BRK","CustomTag","HTML5Video"]], ["grpEdit5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen"]]
+    ];
+   if (oEdit1.fileBrowser != "") {
+        oEdit1.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,650,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+    } else { /* If file browser not used, reduce the HTML5 Video dialog height */
+        oEdit1.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,330,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+    }
+    /*Enable Custom File Browser */
+	
+	oEdit1.css = "/admin/Editor/scripts/bootstrap/css/bootstrap.min.css";	
+	oEdit1.fileBrowser = "/admin/Editor/assetmanager/asset.php";
+    /*Define "CustomTag" dropdown */
+    oEdit1.arrCustomTag=[["First Name","{\{firstname\}}"]];//Define custom tag selection
+    /*Apply stylesheet for the editing content*/
+    
+    /*Render the editor*/
+   
+	
+	oEdit1.REPLACE("member_main");
+	</script>	</td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><b>JV Menu:</b></td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><?php echo $jv_menu?></td>
+</tr>
+<tr>
+  <td width="100%" align="left" class="tbtext">&nbsp;</td>
+</tr>
+
+<tr>
+  <td align="left" class="tbtext"><b>JV Index:
+  </b></td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext">
+	<textarea name="jv_main" cols="100" rows="8" class="inputbox" id="jv_main"><?php echo $jv_main?></textarea>
+	<script type="text/javascript" language="JavaScript">
+	var oEdit2 = new InnovaEditor("oEdit2");
+	
+    oEdit2.width = 700;
+    oEdit2.height = 450;
+   
+   oEdit2.groups = [
+    ["grpEdit1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog", "Styles", "RemoveFormat"]],
+    ["grpEdit2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+    ["grpEdit3", "", ["TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "ImageDialog", "YoutubeDialog"]],
+    ["grpEdit4", "", ["CharsDialog", "Line", "BRK","CustomTag","HTML5Video"]], ["grpEdit5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen"]]
+    ];
+   if (oEdit2.fileBrowser != "") {
+        oEdit1.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,650,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+    } else { /* If file browser not used, reduce the HTML5 Video dialog height */
+        oEdit2.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,330,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+    }
+    /*Enable Custom File Browser */
+    /*Enable Custom File Browser */
+		oEdit2.arrCustomButtons = [["Snippets", "modalDialog('/admin/Editor/scripts/bootstrap/snippets.htm',860,530,'Insert Snippets');", "Bootstrap", "btnContentBlock.gif"]];
+	oEdit2.css = "/admin/Editor/scripts/bootstrap/css/bootstrap.min.css";	
+	
+	oEdit2.fileBrowser = "/admin/Editor/assetmanager/asset.php";
+    /*Define "CustomTag" dropdown */
+    oEdit2.arrCustomTag=[["First Name","{\{firstname\}}"]];//Define custom tag selection
+    /*Apply stylesheet for the editing content*/
+  
+    /*Render the editor*/
+   
+	
+	oEdit2.REPLACE("jv_main");
+	</script>	
+	</td>
+  </tr>
+<tr>
+  <td align="left" class="tbtext"><b>Affiliate Menu:</b></td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><?php echo $aff_menu?></td>
+</tr>
+<tr>
+  <td width="100%" align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext"><b>Affiliate Index:
+  </b></td>
+  </tr>
+ 
+  <tr>
+	<td align="left" class="tbtext">
+        <textarea name="affiliate_main" cols="100" rows="8" class="inputbox" id="affiliate_main"><?php echo $affiliate_main?></textarea>
+        <script type="text/javascript" language="JavaScript">
+     
+	var oEdit3 = new InnovaEditor("oEdit3");
+    oEdit3.width = 700;
+    oEdit3.height = 450;
+	
+   
+    oEdit3.groups = [
+    ["grpEdit1", "", ["FontName", "FontSize", "Superscript", "ForeColor", "BackColor", "FontDialog", "BRK", "Bold", "Italic", "Underline", "Strikethrough", "TextDialog", "Styles", "RemoveFormat"]],
+    ["grpEdit2", "", ["JustifyLeft", "JustifyCenter", "JustifyRight", "Paragraph", "BRK", "Bullets", "Numbering", "Indent", "Outdent"]],
+    ["grpEdit3", "", ["TableDialog", "Emoticons", "FlashDialog", "BRK", "LinkDialog", "ImageDialog", "YoutubeDialog"]],
+    ["grpEdit4", "", ["CharsDialog", "Line", "BRK","CustomTag","HTML5Video"]], ["grpEdit5", "", ["SearchDialog", "SourceDialog", "BRK", "Undo", "Redo", "FullScreen"]]
+    ];
+   if (oEdit3.fileBrowser != "") {
+        oEdit3.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,650,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+    } else { /* If file browser not used, reduce the HTML5 Video dialog height */
+        oEdit3.arrCustomButtons = [["HTML5Video", "modalDialog('/admin/Editor/scripts/common/webvideo.htm',690,330,'HTML5 Video');", "HTML5 Video", "btnVideo.gif"]];
+    }
+    /*Enable Custom File Browser */
+	oEdit3.arrCustomButtons = [["Snippets", "modalDialog('/admin/Editor/scripts/bootstrap/snippets.htm',860,530,'Insert Snippets');", "Bootstrap", "btnContentBlock.gif"]];
+	oEdit3.css = "/admin/Editor/scripts/bootstrap/css/bootstrap.min.css";	
+	
+	oEdit3.fileBrowser = "/admin/Editor/assetmanager/asset.php";
+    /*Define "CustomTag" dropdown */
+    oEdit3.arrCustomTag=[["First Name","{\{firstname\}}"]];//Define custom tag selection
+    /*Apply stylesheet for the editing content*/
+   
+    /*Render the editor*/
+        oEdit3.REPLACE("affiliate_main");
+        </script>
+	</td>
+</tr>
+<tr>
+  <td align="left" class="tbtext">&nbsp;</td>
+</tr>
+
+
+
+
+
+<tr>
+	<td align="left" class="tbtext">&nbsp;</td>
+</tr>
+<tr>
+	<td align="left">
+		<input type="submit" name="submit" value="Update Index Page" class="inputbox">
+    </td>
+</tr>
+<tr>
+<td align="left">
+<br>
+<ul>
+  <li><font class=tbtext><b>Member Index </b> is the main index page for the members area.</font></li>
+  </ul></td>
+</tr>
+</table>
+</form>
+
+<br />
+</div>
+</div>
+<div class="content-wrap-bottom"></div>
+</div>
+<!-- ###################### Content Area Close ###################### -->
+<?php include "footer.php";?>
