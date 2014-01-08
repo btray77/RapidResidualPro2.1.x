@@ -33,7 +33,7 @@ $q="select count(*) as cnt from ".$prefix."member_products where member_id='$mem
 $r=$db->get_a_line($q); 
 $count=$r[cnt];
 $obj_responder = new autoresponders('',$product_id);
-if($count == 0 && $total_attempts == 119)
+if($count == 0 && $total_attempts == 15)
 {
 echo "Our system is unable to accept PayPal payment. Please wait our administrator will contact you soon. Sorry for inconveniences.";
  
@@ -68,7 +68,7 @@ member management in your site admin area.</p>
 <p>Regards,</p>
 <p>System Admin '.$sitename.'<p>';
 $common->sendemail('System Generated', '', $webmaster_email, $subject, $message, $headers);
-echo '0';
+echo 'Pending';
 }
 else if($count==1)
 {
@@ -100,10 +100,11 @@ else if($count==1)
 	}
 	else if($payment_type=='echeck' && $payment_status == 'Completed')
 	{
-		echo '1';
+		echo 'completed';
+		
 	}
 	else if($payment_status == 'Completed')
-		echo '1';
+		echo 'completed';
 	
 	
 }

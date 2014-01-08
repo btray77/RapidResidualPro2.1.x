@@ -1,5 +1,5 @@
 <?php
-include_once("common/config.php");
+include_once("common/config.php"); 
 include ("include.php");
 $randomstring = mysql_real_escape_string(trim($_POST["random"]));
 $total_attempts = trim($_POST["try"]);
@@ -15,6 +15,7 @@ $c = $db->get_a_line($q);
 @extract($c);
 $product_sql = "select item_name,payer_email,payment_type,payment_status,item_number from ".$prefix."orders where randomstring='$randomstring'";
 $row_product = $db->get_a_line($product_sql);
+
 @extract($row_product);
 $product_id=$row_product['item_number'];
 $product_name=$row_product['item_name'];
@@ -24,7 +25,7 @@ $payment_status=$row_product['payment_status'];
 $q="select count(*) as cnt from ".$prefix."member_products where member_id='$member_id' && product_id='$product_id'";
 $r=$db->get_a_line($q); 
 $count=$r[cnt];
-if($count == 0 && $total_attempts == 119)
+if($count == 0 && $total_attempts == 15)
 {
 echo "Our system is unable to accept PayPal payment. Please wait our administrator will contact you soon. Sorry for inconveniences.";
 $headers  = 'MIME-Version: 1.0' . "\r\n";
@@ -58,6 +59,7 @@ member management in your site admin area.</p>
 <p>Regards,</p>
 <p>System Admin '.$sitename.'<p>';
 $common->sendemail('System Generated', '', $webmaster_email, $subject, $message, $headers);
+echo 'Pending';
 }
 else if($count==1)
 {
@@ -79,12 +81,11 @@ else if($count==1)
 		$message = $message."\r\n\r\n".$mailer_details;
 		$header	= "From: ".$email_from_name." <".$webmaster_email.">";
 		@mail($email,$subject,$message,$header);
-		echo $payment_type;	
+		echo 'completed';
 	}
 	else if($payment_status == 'Completed')
 		echo 'completed';
-	else
-		echo 'pending';
-}
 	
+}
+
 ?>

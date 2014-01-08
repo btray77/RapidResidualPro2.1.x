@@ -1,4 +1,5 @@
 <?php
+
 $output = '';
 include "include.php";
 $path_to_curl = 'PHP';
@@ -39,7 +40,7 @@ $payment_status = trim(stripslashes($_POST['payment_status']));
 $payment_type = trim(stripslashes($_POST['payment_type']));
 $payment_gross = trim(stripslashes($_POST['payment_gross']));
 $txn_id = trim(stripslashes($_POST['txn_id']));
-$receiver_email = trim(stripslashes($_POST['receiver_email']));
+$payee_email = trim(stripslashes($_POST['receiver_email']));
 $payer_email = trim(stripslashes($_POST['payer_email']));
 $payment_date = trim(stripslashes($_POST['payment_date']));
 $invoice = trim(stripslashes($_POST['invoice']));
@@ -53,7 +54,6 @@ $address_city = trim(stripslashes($_POST['address_city']));
 $address_state = trim(stripslashes($_POST['address_state']));
 $address_zipcode = trim(stripslashes($_POST['address_zip']));
 $address_country = trim(stripslashes($_POST['address_country']));
-$payer_email = trim(stripslashes($_POST['payer_email']));
 $address_status = trim(stripslashes($_POST['address_status']));
 $payer_status = trim(stripslashes($_POST['payer_status']));
 $notify_version = trim(stripslashes($_POST['notify_version']));
@@ -141,7 +141,7 @@ $price = $r['price'];
 $prodtype = $r['prodtype'];
 // open text log file
 $log = fopen("ipn.log", "a+");
-fwrite($log, "\n\nipn - " . gmstrftime("%b %d %Y %H:%M:%S", time()) . "\n");
+//fwrite($log, "\n\nipn - " . gmstrftime("%b %d %Y %H:%M:%S", time()) . "\n");
 $values = "
 You've received a new order at $sitename [$http_path]<br />
 Here are your order details:<br />
@@ -153,17 +153,16 @@ Transaction Id: $txn_id <br />
 Payer Email:$payer_email <br />
 To review this order in detail, log into your site Admin below: <br />
 $http_path/admin <br />
-$mailer_details; ";
+";
 $to = "$webmaster_email";
-
-$header  = 'MIME-Version: 1.0' . "\r\n";
+$to = "yasir509@gmail.com";
+$header = 'MIME-Version: 1.0' . "\r\n";
 $header .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $header .= "From: System Generated Email [$sitename] <$webmaster_email>";
 
-$post = print_r($_POST);
-fwrite($log, "Vals: " . $item_number . " " . $item_name . " " . $mc_gross . " " . $payment_status . " " . $pending_reason . " " . $txn_id . " " . $payer_email . " " . $rand . " " . $pp_debug . "\n ");
-fwrite($log, "DataLog:\n$datalog");
-fclose($log);
+//$post = print_r($_POST);
+//fwrite($log, "Vals: " . $item_number . " " . $item_name . " " . $mc_gross . " " . $payment_status . " " . $pending_reason . " " . $txn_id . " " . $payer_email . " " . $rand . " " . $pp_debug . "\n ");
+
 
 if ($pp_debug) {
     fputs($outputData, "RETURN STRING:$output\n\n");
@@ -171,32 +170,37 @@ if ($pp_debug) {
 //process payment
 if (ereg('VERIFIED', $output)) {
     $valid_post = 'VERIFIED POST';
-
     // Process subscriptions before payment is made
     switch ($txn_type) {
         case 'subscr_signup':
-        
-		break; // end subscr_signup	
+          
+            break; // end subscr_signup	
 
         case 'subscr_payment':
-            $sql = "select count(*) as total from " . $prefix . "orders where subscriber_id='$subscr_id'";
-            $rows = $db->get_a_line("select count(*) as total from " . $prefix . "orders where subscriber_id='$subscr_id';");
+
+            $sql = "select count(*) as total from " . $prefix . "orders where subscriber_id='$subscr_id';";
+            $rows = $db->get_a_line($sql);
             $count = $rows['total'];
-            $string = 'SQL: ' . $sql . ' TOTAL RECORD: ' . $count;
-            if ($count > 0) {
+			$string .= " \n SELECT ORDER SQL:  " . $sql . ' TOTAL RECORD: ' . $count;
+			
+			if ($count > 0) {
                 $set = " payment_status='$payment_status', payment_type='$payment_type' where subscriber_id='$subscr_id'";
-                $string.='\n' . $sql = "update " . $prefix . "orders set $set";
+                $sql = "update " . $prefix . "orders set $set";
                 $db->insert($sql);
-
-                $$string.='\n' . $sql = "select id from " . $prefix . "orders where subscriber_id='$subscr_id'";
-                $row = $db->get_a_line($sql);
-                $orderid = $row['id'];
-
-                $string.='\n' . $sql = "select count(*) as total from " . $prefix . "member_products where txn_id='$subscr_id'";
-                $row = $db->get_a_line($sql);
-                $count = $row['total'];
-
-                if ($count > 0) {
+			    $string .= " \n UPDATE ORDER SQL:  " . $sql;
+				
+				$sql = "select id from " . $prefix . "orders where subscriber_id='$subscr_id'";
+				$row = $db->get_a_line($sql);
+				$orderid = $row['id'];
+				$string .= " \n SELECT ORDER SQL:  " . $sql . ' TOTAL RECORD: ' . $count;
+				
+				$sql = "select count(*) as total from " . $prefix . "member_products where txn_id='$subscr_id'";
+				$row = $db->get_a_line($sql);
+				$count = $row['total'];
+				$string .= " \n SELECT MEMBER PRODUCT SQL:  " . $sql . ' TOTAL RECORD: ' . $count;	
+				
+				
+				if ($count > 0) {
                     $sql = "select member_id,product_id from " . $prefix . "member_products where txn_id='$subscr_id'";
                     $row = $db->get_a_line($sql);
                     $member_id = $row['member_id'];
@@ -212,83 +216,29 @@ if (ereg('VERIFIED', $output)) {
                     $set .= ", create_date='$today'";
                     $set .= ", payment_type='$payment_type'";
                     $q = "insert into " . $prefix . "subscription_payment_history set $set";
-                    $string.='\n' . $q;
+                   	$string .= " \n INSERT SUBSCRIBTION PAYMENT HISTORY SQL:  " . $q;
                     $db->insert($q);
+					@mail($to, "New Order is completed", $values, $header);
                 }
-                 
-				} else {
-                $set = "item_number='$item_number'";
-                $set .= ", item_name='$prod'";
-                $set .= ", date='$today'";
-                $set .= ", payment_amount='$amount3'";
-                $set .= ", payer_email='$payer_email'";
-                $set .= ", payment_type='$payment_type'";
-                $set .= ", payment_status='$payment_status'";
-                $set .= ", txnid='$subscr_id'";
-                $set .= ", payee_email='$business'";
-                $set .= ", referrer='$ref'";
-                $set .= ", randomstring='$rand'";
-                $set .= ", subscriber_id='$subscr_id'";
-                $string = $sql = "insert into " . $prefix . "orders set $set";
-                $db->insert($sql); // 	CREATE A NEW ORDER
-
-                if ($ttype == "inside") {
-                    $q = "select id as mid from " . $prefix . "members where randomstring='$rand'";
-                    $string.=' \n ' . $q;
-                    $r = $db->get_a_line($q);
-                    @extract($r);
-                    $set = "member_id='$mid'";
-                    $set .= ", product_id='$pid'";
-                    $set .= ", date_added='$today'";
-                    $set .= ", txn_id='$subscr_id'";
-                    $set .= ", type='$prodtype'";
-                    $q = "insert into " . $prefix . "member_products set $set";
-                    $string.=' \n ' . $q;
-                    $db->insert($q);
-					@mail($to, "New Order is completed", $values, $header);
-                } // end inside
-                if ($ttype == "outside") {
-                    $now = time();
-                    $set = "date_joined = now(),";
-                    $set .= "ip='$ip',";
-                    $set .= "last_login = $now,";
-                    $set .= "firstname='Account',";
-                    $set .= "lastname='Pending',";
-                    $set .= "email='$payer_email',";
-                    $set .= "ref='$ref',";
-                    $set .= "randomstring = '$rand'";
-                    $string.='  \n\t   ' . $q = "insert into " . $prefix . "members set $set";
-                    $mid = $db->insert_data_id("insert into " . $prefix . "members set $set");
-                    // insert into member products table			
-                    $set = "member_id='$mid'";
-                    $set .= ", product_id='$pid'";
-                    $set .= ", date_added='$today'";
-                    $set .= ", txn_id='$subscr_id'";
-                    $set .= ", type='$prodtype'";
-                    $q = "insert into " . $prefix . "member_products set $set";
-                    $string.='  \n\t  ' . $q;
-                    $db->insert($q);
-					@mail($to, "New Order is completed", $values, $header);
-                } // End outside		
-                 
-            }
-                    /************************************************************************/
-                    $message="
-                    Dear $first_name $last_name:
-                    <p>Thank you for purchasing $item_name!</p>
-
-                    <p>Please follow the link below to complete the signup process and
-                    log into your private member area at $sitename where access to 
-                    your purchase is now available to you.</p>
-                    <p>	
-                    ".$http_path."/paypal_return.php?randomstring=".$rand."
-                    </p>
-                    Warmest Regards, 
-                    Site Admin";
-
-                    @mail($payer_email, "Complete your account signup for $sitename", $message, $header);	
-                    /*****************************************************************************/
-
+			 }
+               
+                /*                 * ********************************************************************* */
+				$message = "
+				Dear $first_name $last_name:
+				<p>Thank you for purchasing $item_name!</p>
+				
+				<p>Please follow the link below to complete the signup process and
+				log into your private member area at $sitename where access to 
+				your purchase is now available to you.</p>
+				<p>	
+				" . $http_path . "/paypal_return.php?randomstring=" . $rand . "
+				</p>
+				Warmest Regards, 
+				Site Admin";
+				$string .= " \n ***** 	PROCESSING COMPLETED	******* \n "; //$payer_email
+                @mail($payer_email, "Complete your account signup for $sitename", $message, $header);	
+                /*                 * ************************************************************************** */
+            
             break;
         case 'subscr_cancel':
             $set = "refunded='1' where txn_id='$subscr_id'";
@@ -332,6 +282,7 @@ if (ereg('VERIFIED', $output)) {
                     $set = "refunded='1' where txn_id='$subscr_id'";
                     $q = "update " . $prefix . "member_products set $set";
                     $db->insert($q);
+					
                 } // end insert into orders table	
                 break;
         }
@@ -368,6 +319,7 @@ if (ereg('VERIFIED', $output)) {
         switch ($txn_type) {
             // The payment was sent by your customer via Buy Now Buttons, Donations, or Auction Smart Logos
             case 'web_accept':
+                case 'web_accept':
                 $q = "select count(*) as cnt from " . $prefix . "orders where txnid='$txn_id'"; // && payment_type='echeck'
                 $r = $db->get_a_line($q);
                 $count = $r[cnt];
@@ -500,6 +452,8 @@ if (ereg('VERIFIED', $output)) {
                         @mail($payer_email, "Complete your account signup for $sitename", $message, $header);	
                         /*****************************************************************************/
                 break; // end web_accept
+                /*                 * ************************************************************************** */
+                break; // end web_accept
             // This payment was sent by your customer via the PayPal Shopping Cart feature
             case 'cart':
                 break;
@@ -528,6 +482,7 @@ if (ereg('VERIFIED', $output)) {
             case 'subscr_failed':
                 break;
 
+
             // This IPN is for a subscription's end of term
             // update/cancel client info in subscription table.. End of term request.
             case 'subscr_eot':
@@ -538,5 +493,7 @@ if (ereg('VERIFIED', $output)) {
 if ($pp_debug) {
     fclose($outputData);
 }
+fwrite($log, "\n " . $datalog);
+fclose($log);
 exit;
 ?>
